@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multimedia Tags</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.6/JsBarcode.all.min.js" integrity="sha512-k2wo/BkbloaRU7gc/RkCekHr4IOVe10kYxJ/Q8dRPl7u3YshAQmg3WfZtIcseEk+nGBdK03fHBeLgXTxRmWCLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <!-- Audio Tag -->
+    <audio src="../ASSETS/audio.mp3" controls muted
+        loop autoplay style="width: 200px; height: 200px; border: 1px solid black;"></audio>
+
+
+    <!-- Video Tag -->
+    <!-- <video src="../ASSETS/video.mp4" style="width: 400px; height: 200px;" controls autoplay muted
+        preload="metadata"></video> -->
+
+    <!-- <video src="../ASSETS/video.mp4" style="width: 400px; height: 200px;" controls 
+        preload="metadata" poster="../ASSETS/thumbnail.png" controlslist="nodownload"></video> -->
+
+    <video src="../ASSETS/video.mp4" style="width: 400px; height: 200px;" controls preload="metadata"
+        poster="../ASSETS/thumbnail.png" controlslist="nodownload"></video>
+
+
+    <!-- Iframe tag -->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/wJO_vIDZn-I?si=S0OuwvNEcRZfC1ta"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.940007416434!2d72.96867847520845!3d19.19782248203205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b94cc8c4edbd%3A0x221ef28a6afdf012!2sJSpiders%20Mumbai%20Thane!5e0!3m2!1sen!2sin!4v1733218869692!5m2!1sen!2sin"
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+
+    <!-- QR code -->
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://mail.jspiders.com/thane" alt="">
+
+    <!-- QR code using canvas and script tags -->
+    <!-- canvas and script tags are javascript tags -->
+<br>
+    <canvas id="barcode"></canvas>
+
+    <script>
+        JsBarcode("#barcode", "https://cdnjs.com/libraries/jsbarcode");
+    </script>
+
+</body>
+
+</html>

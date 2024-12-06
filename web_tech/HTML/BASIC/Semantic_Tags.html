@@ -140,7 +140,7 @@
         }
 
         /* card */
-        #card-box{
+        #card-box {
             border: 1px solid black;
             height: 400px;
             width: 100%;
@@ -150,24 +150,67 @@
             background-color: lightgray;
         }
 
-        #card{
+        .card {
             height: 350px;
             width: 20%;
             border: 1px solid black;
-            text-align: center;
             padding: 10px;
             border-radius: 20px;
             background-color: white;
             box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
             /* box-shadow: 0px 0px 10px black;  all side shadow */
             /* box-shadow: -4px -4px 10px black;  opposite side shadow */
         }
 
-        .cat-data{
+        .cat-data {
             margin-top: 0;
             margin-bottom: 0;
         }
-        
+
+        footer {
+            background-color: #232F3E;
+            border: 1px solid black;
+            padding: 10px;
+            width: 100%;
+            height: 300px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .footer-section {
+            /* background-color: lightgray; */
+            border: none;
+            font-family: Arial, Helvetica, sans-serif;
+            align-content: center;
+        }
+
+        .footer-ul {
+            display: block;
+        }
+
+        .footer-list {
+            color: rgb(122, 122, 122);
+        }
+
+        .footer-list>a {
+            font-size: 16px;
+            color: #DDD;
+        }
+
+        .footer-list:hover {
+            text-decoration-line: underline;
+            border: none;
+            padding: 0;
+            color: #DDD;
+        }
+
+        /* .footer-list>a:hover {
+            color: black;
+        } */
     </style>
 </head>
 
@@ -280,7 +323,7 @@
 
     <!-- card -->
     <div id="card-box">
-        <div id="card">
+        <div class="card">
             <img src="../ASSETS/cat4.jpg" alt="" style="height: 160px; width: 180px; border-radius: 10px;">
 
             <p class="cat-data"><b>Class</b>: Mammalia</p>
@@ -292,7 +335,7 @@
             <p class="cat-data"><b>Cat Star</b>: ⭐⭐⭐⭐⭐</p>
         </div>
 
-        <div id="card">
+        <div class="card">
             <img src="../ASSETS/cat4.jpg" alt="" style="height: 160px; width: 180px; border-radius: 10px;">
 
             <p class="cat-data"><b>Class</b>: Mammalia</p>
@@ -304,7 +347,7 @@
             <p class="cat-data"><b>Cat Star</b>: ⭐⭐⭐⭐⭐</p>
         </div>
 
-        <div id="card">
+        <div class="card">
             <img src="../ASSETS/cat4.jpg" alt="" style="height: 160px; width: 180px; border-radius: 10px;">
 
             <p class="cat-data"><b>Class</b>: Mammalia</p>
@@ -316,7 +359,7 @@
             <p class="cat-data"><b>Cat Star</b>: ⭐⭐⭐⭐⭐</p>
         </div>
 
-        <div id="card">
+        <div class="card">
             <img src="../ASSETS/cat4.jpg" alt="" style="height: 160px; width: 180px; border-radius: 10px;">
 
             <p class="cat-data"><b>Class</b>: Mammalia</p>
@@ -328,6 +371,72 @@
             <p class="cat-data"><b>Cat Star</b>: ⭐⭐⭐⭐⭐</p>
         </div>
     </div>
+
+    <footer>
+        <section class="footer-section">
+            <ul class="footer-ul">
+                <li class="footer-list" style="font-size: 20px; color: #FFF; text-decoration: none; font-weight: bold;">
+                    Get to know us
+                </li>
+                <li class="footer-list"><a href="https://en.wikipedia.org/wiki/Cat" target="_blank">Contact us</a>
+                </li>
+                <li class="footer-list"><a href="https://en.wikipedia.org/wiki/Cat" target="_blank">Cat adopt</a>
+                </li>
+                <li class="footer-list"><a href="https://en.wikipedia.org/wiki/Cat" target="_blank">Cat toys</a>
+                </li>
+                <li class="footer-list"><a href="https://en.wikipedia.org/wiki/Cat" target="_blank">Cat food</a>
+                </li>
+            </ul>
+        </section>
+
+        <section class="footer-section">
+            <ul class="footer-ul">
+                <li class="footer-list" style="font-size: 20px; color: #FFF; text-decoration: none; font-weight: bold;">
+                    Get to know us
+                </li>
+                <li class="footer-list"><a href="https://en.wikipedia.org/wiki/Cat" target="_blank">Contact us</a>
+                </li>
+                <li class="footer-list"><a href="https://en.wikipedia.org/wiki/Cat" target="_blank">Cat adopt</a>
+                </li>
+                <li class="footer-list"><a href="https://en.wikipedia.org/wiki/Cat" target="_blank">Cat toys</a>
+                </li>
+                <li class="footer-list"><a href="https://en.wikipedia.org/wiki/Cat" target="_blank">Cat food</a>
+                </li>
+            </ul>
+        </section>
+
+        <section class="footer-section">
+            <ul class="footer-ul">
+                <li class="footer-list" style="font-size: 20px; color: #FFF; text-decoration: none; font-weight: bold;">
+                    Get to know us
+                </li>
+                <li class="footer-list"><a href="https://en.wikipedia.org/wiki/Cat" target="_blank">Contact us</a>
+                </li>
+                <li class="footer-list"><a href="https://en.wikipedia.org/wiki/Cat" target="_blank">Cat adopt</a>
+                </li>
+                <li class="footer-list"><a href="https://en.wikipedia.org/wiki/Cat" target="_blank">Cat toys</a>
+                </li>
+                <li class="footer-list"><a href="https://en.wikipedia.org/wiki/Cat" target="_blank">Cat food</a>
+                </li>
+            </ul>
+        </section>
+
+        <section class="footer-section">
+            <ul class="footer-ul">
+                <li class="footer-list" style="font-size: 20px; color: #FFF; text-decoration: none; font-weight: bold;">
+                    Get to know us
+                </li>
+                <li class="footer-list"><a href="https://en.wikipedia.org/wiki/Cat" target="_blank">Contact us</a>
+                </li>
+                <li class="footer-list"><a href="https://en.wikipedia.org/wiki/Cat" target="_blank">Cat adopt</a>
+                </li>
+                <li class="footer-list"><a href="https://en.wikipedia.org/wiki/Cat" target="_blank">Cat toys</a>
+                </li>
+                <li class="footer-list"><a href="https://en.wikipedia.org/wiki/Cat" target="_blank">Cat food</a>
+                </li>
+            </ul>
+        </section>
+    </footer>
 </body>
 
 </html>

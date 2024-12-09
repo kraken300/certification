@@ -19,34 +19,108 @@
 </head>
 
 <body>
-    <form action="">
+    <form action="" method="get">
         <fieldset>
             <legend>Sign Up</legend>
 
             <br />
 
+            <label for="company_name">Company Name:</label>
+            <input type="text" id="company_name" value="TCS" readonly>
+            <br />
+            <br />
+
             <label for="username">Username:</label>
-            <input type="text" id="username">
+            <input type="text" id="username" name="username" placeholder="Enter your name">
             <br />
             <br />
 
             <label for="email">Enter your email:</label>
-            <input type="email" id="email">
+            <input type="email" id="email" name="email" placeholder="Enter your email">
             <br />
             <br />
 
             <label for="password">Enter your password:</label>
-            <input type="password" id="password">
+            <input type="password" id="password" name="password" placeholder="Enter your password">
             <br />
             <br />
 
             <label for="age">Enter your age:</label>
-            <input type="number" id="age">
+            <input type="number" id="age" min="20" max="40" name="age" placeholder="Enter your age"
+                style="width: 200px;">
             <br />
             <br />
 
             <label for="phone">Enter your phone number:</label>
-            <input type="tel" id="phone" maxlength="10" minlength="10">
+            <input type="tel" id="phone" maxlength="10" minlength="10" pattern="[7-9]{1}[0-9]{9}" name="phone"
+                placeholder="Enter your phone number">
+            <br />
+            <br />
+
+            <!-- DOB with min and max date limit -->
+            <label for="dob">Enter your date of birth: </label>
+            <input type="date" id="dob" min="2024-12-09" max="2024-12-19">
+            <br />
+            <br />
+
+            <label for="dob2">Enter your date of birth: </label>
+            <input type="datetime" id="dob2" placeholder="Enter your date of birth">
+            <br />
+            <br />
+
+            <label for="dob3">Enter your date of birth: </label>
+            <input type="datetime-local" id="dob3">
+            <br />
+            <br />
+
+            <label for="range">Range of skill:</label>
+            <input type="range" id="range" name="range" min="1" max="60">
+            <br />
+            <br />
+
+            <!-- image input acts like a submit button -->
+            <label for="">Image:</label>
+            <input type="image" src="../ASSETS/cat3.jpg" style="width: 100px; height: 80px;">
+            <br />
+            <br />
+
+            <label for="color">Select a color:</label>
+            <input type="color" name="color" id="color">
+            <br />
+            <br />
+
+            <label for="upload">Upload:</label>
+            <input type="file" name="upload" id="upload">
+            <br />
+            <br />
+
+            <label for="time">Time:</label>
+            <input type="time" name="time" id="time">
+            <br />
+            <br />
+
+            <label for="week">Week</label>
+            <input type="week" name="week" id="week">
+            <br />
+            <br />
+
+            <label for="month">Month</label>
+            <input type="month" name="month" id="month">
+            <br />
+            <br />
+
+            <label for="radio">Select your gender</label>
+            <input type="radio" name="gender" value="male" disabled>Male
+            <input type="radio" name="gender" value="female">Female
+            <input type="radio" name="gender" value="others">Others
+            <br />
+            <br />
+
+            <label for="select">Select your skills</label>
+            <input type="checkbox" name="checkbox" value="core_java">Core Java
+            <input type="checkbox" name="checkbox" value="sql">SQL
+            <input type="checkbox" name="checkbox" value="web_tech" checked>Web Tech
+            <input type="checkbox" name="checkbox" value="adv_java">Adv Java
             <br />
             <br />
 

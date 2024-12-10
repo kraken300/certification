@@ -7,6 +7,11 @@
     <title>Form</title>
 
     <style>
+        body {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+        }
+
         legend {
             font-weight: 800;
             font-size: 30px;
@@ -19,7 +24,7 @@
 </head>
 
 <body>
-    <form action="" method="get">
+    <form action="./submit.html" method="post">
         <fieldset>
             <legend>Sign Up</legend>
 
@@ -31,12 +36,13 @@
             <br />
 
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username" placeholder="Enter your name">
+            <input type="text" id="username" name="username" placeholder="Enter your name" autocomplete="off" autofocus
+                required>
             <br />
             <br />
 
             <label for="email">Enter your email:</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email">
+            <input type="email" id="email" name="email" placeholder="Enter your email" autofocus>
             <br />
             <br />
 
@@ -104,10 +110,10 @@
             <br />
             <br />
 
-            <label for="month">Month</label>
+            <!-- <label for="month">Month</label>
             <input type="month" name="month" id="month">
             <br />
-            <br />
+            <br /> -->
 
             <label for="radio">Select your gender</label>
             <input type="radio" name="gender" value="male" disabled>Male
@@ -124,8 +130,63 @@
             <br />
             <br />
 
+            <label for="url">Enter an url:</label>
+            <input type="url" id="url" name="url">
+            <br />
+            <br />
+
+            <label for="search">Search:</label>
+            <input type="search" id="search" name="search">
+            <br />
+            <br />
+
+            <label for="month">Select a month:</label>
+            <input type="month" name="month" id="month">
+            <br />
+            <br />
+
+            <!-- no need to give an id -->
+            <label for="otp">OTP:</label>
+            <input type="hidden" name="otp" id="otp" value="1234">
+            <br />
+            <br />
+
+            <label for="select">Select a value</label>
+            <select name="option" id="select" size="5" multiple>
+                <optgroup label="Programming languages">
+                    <option value="java">Java</option>
+                    <option value="web">Web tech</option>
+                    <option value="python">Python</option>
+                    <option value="advanced java">advanced java</option>
+                </optgroup>
+            </select>
+            <br />
+            <br />
+
+            <label for="">Select datalist</label>
+            <input type="text" list="datalist">
+            <datalist id="datalist">
+                <option value="java">Java</option>
+                <option value="web">Web tech</option>
+                <option value="python">Python</option>
+                <option value="advanced java">advanced java</option>
+            </datalist>
+            <br />
+            <br />
+
+            <label for="comment_id"></label>
+            <textarea name="comment" rows="10" cols="20" id="comment_id"></textarea>
+            <br />
+            <br />
+
+            <!-- will not submit -->
+            <!-- for javascript functionality -->
+            <!-- <input type="button" value="input button"> -->
+
+            <!-- <button>Button tag</button> -->
             <input type="submit" value="sign up">
             <input type="submit">
+            <input type="reset">
 
         </fieldset>
     </form>

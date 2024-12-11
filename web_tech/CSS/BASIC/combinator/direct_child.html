@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Child selectors</title>
+
+    <style>
+        div>p {
+            background-color: rebeccapurple;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p>This is paragraph 1</p>
+        <p>This is paragraph 2</p>
+        <p>This is paragraph 3</p>
+        <p>This is paragraph 4</p>
+
+        <!-- child selector will select only direct children-->
+        <p><b>This is b inside p</b></p>
+
+        <!-- child selector will not select -->
+        <p>
+        <h1>This is h1 inside p</h1>
+        </p>
+
+        <pre><p>This is p inside pre</p></pre>
+
+        <h2>
+            <p>This is p inside h2</p>
+        </h2>
+    </div>
+</body>
+
+</html>

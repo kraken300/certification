@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Immediate Child</title>
+
+    <style>
+        /* using descendants */
+        /* div pre{
+            background-color: purple;
+            color: white;
+        } */
+
+        /* using direct child */
+        /* body> div >div> pre{
+            background-color: purple;
+            color: white;
+        } */
+
+        /* using immediate child */
+        /* body>section+div+pre+div>div>pre { */
+        /* body>div>div>pre { */
+        body div {
+            background-color: purple;
+            color: white;
+        }
+
+        /* h2{ */
+        body>h2 {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+
+    </section>
+
+    <div></div>
+
+    <pre>
+        <p>This is first pre</p>
+    </pre>
+
+    <div>
+        <div>
+            <pre>
+                This is second pre
+            </pre>
+        </div>
+    </div>
+
+    <section></section>
+    <h1>
+        <h2>
+            <b>
+                This is bold
+            </b>
+        </h2>
+    </h1>
+</body>
+
+</html>

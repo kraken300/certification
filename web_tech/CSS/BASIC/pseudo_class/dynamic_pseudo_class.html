@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo class selectors</title>
+
+    <style>
+        /* dynamic pseudo class */
+        /* FOR ANCHOR TAG */
+        a:link {
+            color: orange;
+        }
+
+        a:visited {
+            color: green;
+        }
+
+        a:hover {
+            color: white;
+            background-color: black;
+        }
+
+        a:active {
+            color: blueviolet;
+        }
+
+        /* FOR INPUT TAG */
+        input:checked {
+            /* cannot use border */
+            /* border: 10px solid red; */
+            outline: 2px solid red;
+        }
+        
+        input:disabled {
+            /* cannot use border */
+            /* border: 2px solid red; */
+            outline: 2px solid red;
+        }
+        
+        input:read-only {
+            background-color: rebeccapurple;
+        }
+        
+        input:required {
+            background-color: orange;
+        }
+        
+        input:focus {
+            /* cannot use border */
+            /* border: 2px solid red; */
+            background-color: lightgreen;
+            outline: 1px solid darkgreen;
+            border: none;
+            border-radius: 4px;
+        }
+
+        p:empty {
+            background-color: cadetblue;
+        }
+
+        /* structural pseudo class */
+
+
+        
+    </style>
+</head>
+
+<body>
+
+    <a href="https://www.google.com">Google</a>
+    <br>
+
+    <input type="checkbox">apple
+    <input type="checkbox">mango
+    <input type="checkbox" checked>kiwi
+    <input type="checkbox" disabled>pineapple
+    <br>
+
+    <input type="radio" disabled>pineapple
+    <br>
+
+    <input type="text" readonly value="read-only">
+    <br>
+
+    <input type="text" value="focus">
+    <br>
+
+    <input type="text" required value="required">
+    <br>
+
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p style="height: 40px; width: 100px;"></p>
+
+</body>
+
+</html>

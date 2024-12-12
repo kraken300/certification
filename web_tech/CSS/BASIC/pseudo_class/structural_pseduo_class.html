@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo structural class selector</title>
+
+    <style>
+        p:first-child{
+            background-color: aquamarine;
+        }
+
+        p:last-child{
+            background-color: aquamarine;
+        }
+
+        p:first-of-type{
+            background-color: lightgreen;
+        }
+
+        p:last-of-type{
+            background-color: lightgreen;
+        }
+
+        p:nth-child(3){
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- now p is not the first child -->
+    <pre>pre before p</pre>
+    <p>para 1</p>
+    <p>para 2</p>
+    <p>para 3</p>
+    <p>para 4</p>
+    
+    <!-- now p is not the last child -->
+    <h1>heading after para</h1>
+</body>
+</html>

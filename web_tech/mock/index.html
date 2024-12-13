@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Form</title>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 500px;
+        }
+
+        #username:focus {
+            outline: 3px solid blue;
+            border: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <form action="./login.html">
+        <fieldset>
+            <legend style="font-size: 30px; font-weight: bold;">Sign up</legend>
+            <br>
+
+            <label for="company">Company name:</label>
+            <input type="text" id="company" value="Accenture" readonly>
+            <br>
+            <br>
+
+            <!-- Outline should be blue for this input only -->
+            <label for="username">Username:</label>
+            <input type="text" id="username" required>
+            <br>
+            <br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+            <br>
+            <br>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" minlength="10" maxlength="10" pattern="[9]{1}[0-9]{9}" required>
+            <br>
+            <br>
+
+            <label for="resume">Upload Resume</label>
+            <input type="file" id="resume">
+            <br>
+            <br>
+
+            <label for="select_skills">Select skills:</label>
+            <select name="skills" id="select_skills" required>
+                <optgroup label="Skills">
+                    <option value="core_java">Core Java</option>
+                    <option value="web_tech">Web Tech</option>
+                    <option value="sql">SQL</option>
+                    <option value="advance_java">Advance Java</option>
+                </optgroup>
+            </select>
+            <br>
+            <br>
+
+            <input type="submit" value="submit">
+            <input type="reset" value="reset">
+
+        </fieldset>
+    </form>
+</body>
+
+</html>

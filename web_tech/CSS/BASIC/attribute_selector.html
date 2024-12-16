@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attribute selector</title>
+
+    <style>
+        body {
+            background-color: lightgray;
+        }
+
+        /* a[target] {
+            background-color: rgb(93, 93, 255);
+            color: white;
+            text-decoration: none;
+            padding: 4px;
+            border-radius: 10px;
+        } */
+
+        a[target="_self"] {
+            background-color: rgb(93, 93, 255);
+            color: white;
+            text-decoration: none;
+            padding: 4px;
+            border-radius: 10px;
+        }
+
+        img[src="../ASSETS/cat.jpg"] {
+            border: 10px solid brown;
+            border-radius: 40px;
+        }
+
+        img[src="../ASSETS/cat2.jpg"] {
+            border: 10px solid green;
+            border-radius: 100px;
+        }
+
+        /* tilde */
+        /* p[class~="hello"] {
+            background-color: rebeccapurple;
+            color: white;
+        } */
+
+        /* pipeline */
+        /* p[class|="hello"]{
+            background-color: plum;
+        } */
+
+        /* cap */
+        /* p[class^="hello"] {
+            background-color: rgb(122, 0, 122);
+            color: white;
+        } */
+
+         /* dollar */
+         /* p[class$="hello"]{
+            background-color: royalblue;
+            color: white;
+         } */
+
+         p[class*="hello"]{
+            background-color: lightgreen;
+         }
+    </style>
+
+</head>
+
+<body>
+    <a href="https://www.amazon.in" target="_self">Without target attribute</a>
+    <br>
+    <br>
+
+    <a href="https://www.amazon.in" target="_blank">With target attribute</a>
+    <br>
+    <br>
+
+    <img src="../ASSETS/cat.jpg" alt="cat" style="height: 200px;">
+
+    <img src="../ASSETS/cat2.jpg" alt="cat2" style="height: 200px;">
+    <br>
+    <br>
+
+    <!-- tilde selector requires exact value and space after and before exact value -->
+    <!-- <h1>Tilde</h1>
+    <p class="hello">Para1</p>
+    <p class="hello_2">Para2</p>
+    <p class="hello hi">Para3</p>
+    <p class="hi hello">Para4</p>
+    <p class="hello+1">Para5</p>
+    <p class="hello + 1">Para6</p>
+    <p class="hello=1">Para7</p>
+    <p class="hello_">Para8</p> -->
+
+    <!-- pipeline selector requires exact value and hypen after exact value -->
+    <!-- <h2>Pipeline</h2>
+    <p class="hello">Para1</p>
+    <p class="hello_2">Para2</p>
+    <p class="hello hi">Para3</p>
+    <p class="hi hello">Para4</p>
+    <p class="hello-">Para5</p>
+    <p class="hello-1">Para6</p>
+    <p class="hello-hehehe">Para7</p>
+    <p class="-hello">Para8</p> -->
+
+    <!-- exact value must be at the start -->
+    <!-- <h1>Cap</h1>
+    <p class="hello">Para1</p>
+    <p class="hello_2">Para2</p>
+    <p class="hello hi">Para3</p>
+    <p class="hi hello">Para4</p>
+    <p class="hello-">Para5</p>
+    <p class="hello-1">Para6</p>
+    <p class="hello-hehehe">Para7</p>
+    <p class="-hello">Para8</p> -->
+
+    <!-- exact value must be at the end -->
+    <!-- <h1>Dollar</h1>
+    <p class="hello">Para1</p>
+    <p class="hello_2">Para2</p>
+    <p class="hello hi">Para3</p>
+    <p class="hi hello">Para4</p>
+    <p class="hello-">Para5</p>
+    <p class="hello-1">Para6</p>
+    <p class="hello-hehehe">Para7</p>
+    <p class="-hello">Para8</p> -->
+
+    <!-- will select every class with the exact value -->
+    <h1>Asterisk</h1>
+    <p class="hello">Para1</p>
+    <p class="hello_2">Para2</p>
+    <p class="hello hi">Para3</p>
+    <p class="hi hello">Para4</p>
+    <p class="hello-">Para5</p>
+    <p class="hello-1">Para6</p>
+    <p class="hello-hehehe">Para7</p>
+    <p class="abcd">Para8</p>
+
+</body>
+
+</html>

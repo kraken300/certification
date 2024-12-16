@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo Element Selector</title>
+
+    <style>
+        #p1::first-letter {
+            background-color: rebeccapurple;
+            initial-letter: 2;
+        }
+
+        #p2::first-line{
+            font-weight: bold;
+            background-color: lightblue;
+        }
+
+        #p3::after{
+            /* content: url(image); */
+            content: "⭐⭐⭐⭐⭐";
+        }
+
+        #p4::before{
+            content: "🦄🦄🦄🦄🦄";
+        }
+
+        ::marker{
+            /* content: url(image); */
+            content: "❄️";
+        }
+
+        #p5::selection{
+            background-color: black;
+            color: white;
+        }
+
+        #p6::selection{
+            user-select: none;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <p id="p1">
+       Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, nostrum pariatur quis quibusdam fuga voluptatibus facere adipisci sint amet dicta unde, incidunt praesentium! Officiis maxime quibusdam saepe ut omnis deserunt, veritatis explicabo alias vitae est itaque commodi velit! Necessitatibus, itaque autem aliquam, unde, at adipisci et vitae libero cumque provident nam. Cum vero aliquid nemo a, cumque natus? Deserunt, accusamus.
+    </p>
+
+    <p id="p2">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus explicabo animi fuga optio consectetur eligendi quae qui tenetur officiis. Iusto inventore at ducimus ratione numquam culpa repudiandae commodi deleniti quis!
+    </p>
+
+    <p id="p3">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus et, voluptatibus beatae explicabo quaerat optio, inventore soluta distinctio ex sit a tempora amet dolorem sapiente cupiditate tempore sequi delectus mollitia?
+    </p>
+
+    <p id="p4">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur error dolorem, et magni autem illum adipisci itaque voluptatem explicabo velit delectus nostrum exercitationem odio labore numquam quibusdam maiores nulla fugiat!
+    </p>
+
+    <ul>
+        <li>Apple</li>
+        <li>Pineapple</li>
+        <li>Custard Apple</li>
+        <li>Green Apple</li>
+    </ul>
+
+    <p id="p5">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ad quod suscipit nisi doloremque! Consequuntur, impedit nam quibusdam obcaecati quod repellendus unde quo beatae illum labore placeat nesciunt saepe dignissimos.
+    </p>
+
+    <p id="p6">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas quo provident asperiores pariatur quos aspernatur officiis autem aliquid et veritatis culpa, nobis voluptatem, facere, voluptate excepturi? Dolor autem dignissimos ab!
+    </p>
+</body>
+
+</html>

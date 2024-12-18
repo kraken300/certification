@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Property in CSS</title>
+
+    <style>
+        #div1,
+        #div2 {
+            height: 200px;
+            width: 200px;
+            border: 2px solid black;
+            display: inline;
+        }
+
+        #a1,
+        #a2 {
+            display: block;
+            border: 2px solid black;
+            padding: 4px;
+            text-decoration: none;
+            height: 60px;
+            width: 40px;
+        }
+
+        #div3,
+        #div4 {
+            height: 200px;
+            width: 200px;
+            border: 2px solid black;
+            display: inline-block;
+        }
+
+        #a3,
+        #a4 {
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+        }
+
+        p {
+            display: none;
+        }
+
+        #div5 {
+            border: 2px solid black;
+            width: 400px;
+            height: 400px;
+            padding: 10px;
+        }
+
+        #div5:hover p {
+            display: block;
+            background-color: rebeccapurple;
+            color: white;
+            padding: 10px;
+            font-size: 20px;
+            text-decoration: underline;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="div1">Block to Inline</div>
+    <div id="div2">Block to Inline</div>
+
+    <a href="" id="a1">Inline to Block</a>
+    <a href="" id="a2">Inline to Block</a>
+
+    <div id="div3">Inline block</div>
+    <div id="div4">Inline block</div>
+
+    <a href="" id="a3">Inline block</a>
+    <a href="" id="a4">Inline block</a>
+
+    <div id="div5">
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum perspiciatis voluptates ut nihil natus
+            cumque quisquam dolor praesentium iure corrupti, repudiandae dolorum a omnis quos ratione distinctio
+            cupiditate totam odit.
+        </p>
+    </div>
+</body>
+
+</html>

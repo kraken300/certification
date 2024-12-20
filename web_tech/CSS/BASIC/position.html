@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position CSS Property</title>
+
+    <style>
+        img {
+            width: 200px;
+            height: 300px;
+        }
+
+        #cat1 {
+            position: relative;
+            opacity: 0.2;
+        }
+
+        #cat2 {
+            position: relative;
+            right: 60px;
+            opacity: 0.4;
+        }
+
+        #cat3 {
+            position: relative;
+            right: 120px;
+            opacity: 0.6;
+        }
+
+        #cat4 {
+            position: relative;
+            right: 180px;
+            opacity: 0.8;
+        }
+
+        #cat5 {
+            position: relative;
+            right: 240px;
+            /* opacity: 1; */
+        }
+
+        .container {
+            display: flex;
+            /* justify-content: space-around; */
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+        }
+
+        .box1 {
+            background-color: red;
+            position: relative;
+            /* left: -100px; */
+        }
+
+        .box2 {
+            background-color: green;
+        }
+
+        .box3 {
+            background-color: blue;
+            position: absolute;
+        }
+
+        .box4 {
+            background-color: rebeccapurple;
+        }
+    </style>
+
+</head>
+
+<body>
+    <img src="../ASSETS/cat.jpg" alt="cat1" id="cat1">
+    <img src="../ASSETS/cat.jpg" alt="cat2" id="cat2">
+    <img src="../ASSETS/cat.jpg" alt="cat3" id="cat3">
+    <img src="../ASSETS/cat.jpg" alt="cat4" id="cat4">
+    <img src="../ASSETS/cat.jpg" alt="cat5" id="cat5">
+
+    <div class="container">
+        <div class="box box1"></div>
+        <div class="box box2"></div>
+        <div class="box box3"></div>
+        <div class="box box4"></div>
+    </div>
+</body>
+
+</html>

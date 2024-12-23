@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transition Property</title>
+
+    <style>
+        p {
+            display: none;
+        }
+
+        .container {
+            height: 200px;
+            width: 200px;
+            border: 1px solid black;
+            /* transition-duration is compulsory */
+            /* hover property is compulsory */
+            transition-duration: 4s;
+            /* transition-property: none; */
+            transition-property: all;
+            /* transition-delay: 2s; */
+            /* transition-timing-function: ease; */
+            /* transition-timing-function: ease-in; */
+            /* transition-timing-function: ease-in-out; */
+            /* transition-timing-function: ease-out; */
+            /* transition-timing-function: steps(4,start);
+            transition-timing-function: steps(2,end); */
+            /* transition-timing-function: cubic-bezier(0.95, 0.05, 0.795, 0.035); */
+            transition-timing-function: linear;
+        }
+
+        .container:hover {
+            /* position: relative;
+            left: 300px; */
+            margin-left: 300px;
+            background-color: rebeccapurple;
+            content: url("../ASSETS/cat.jpg");
+        }
+
+        .container:hover p {
+            display: block;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero nobis ipsam, illo doloribus quod facilis
+            ipsa. Nulla porro sunt voluptas, beatae nisi sint in nam alias, cumque illo maiores vero!
+        </p>
+    </div>
+</body>
+
+</html>

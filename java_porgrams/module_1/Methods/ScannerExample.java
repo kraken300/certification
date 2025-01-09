@@ -40,6 +40,8 @@ public class ScannerExample{
 		String s1 = sc.next();
 		System.out.println("String(next) : " + s1);
 
+		// The enter button clicked by the user is understood
+		// as an input by the nextLine() method
 		// System.out.print("Enter String(nextLine) : ");
 		// String s2 = sc.nextLine();
 		// System.out.println("String(nextLine) : " + s2);

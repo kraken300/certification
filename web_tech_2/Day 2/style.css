@@ -1,0 +1,28 @@
+@import url("./global.css");
+
+*{
+    background: #ccc;
+}
+
+h1{
+    background: yellow;
+    color: #111;
+}
+
+#s1{
+    background: tomato;
+    color: aliceblue;
+}
+
+.span-content{
+    background: deepskyblue;
+}
+
+.active{
+    background: green;
+    color: #fff;
+}
+
+#sec, article, .e1{
+    color: navy;
+}

@@ -1,0 +1,31 @@
+.demo:link{
+    color: yellow;
+}
+
+.demo:visited{
+    color: brown;
+}
+
+.demo:hover{
+    color: green;
+}
+
+.demo:active{
+    color: blue;
+}
+
+/* .demo:focus{
+    color: limegreen;
+} */
+
+ul > li:first-child{
+    color: aqua;
+}
+
+ul > li:last-child{
+    color: aqua;
+}
+
+ul > li:nth-child(5){
+    color: aqua;
+}

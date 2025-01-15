@@ -1,0 +1,41 @@
+input[type="text"]{
+    background: grey;
+}
+
+input[type="email"]{
+    background: orange;
+}
+
+input[required]{
+    background: #add8e6;
+}
+
+body > section > article > p + h2{
+    background: violet;
+}
+
+.para::first-letter{
+    background: green;
+}
+
+.para::first-line{
+    background: tomato;
+}
+
+.head::before{
+    content: "WELCOME ";
+}
+
+.head::after{
+    content: " ALL";
+}
+
+.para::selection{
+    background: black;
+    color: #fff;
+}
+
+ol > li::marker{
+    color: red;
+}
+

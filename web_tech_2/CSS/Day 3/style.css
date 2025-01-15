@@ -1,0 +1,23 @@
+/* .container p{
+    background: black;
+    color: #fff;
+}
+ */
+
+/* body > .container > p{
+    background: black;
+    color: #fff;
+} */
+
+.container > section h2{
+    background: green;
+    color: #fff;
+}
+
+/* h1 + p{
+    background: gold;
+} */
+
+h1 ~ p{
+    background: gold;
+}

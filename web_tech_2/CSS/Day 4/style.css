@@ -1,0 +1,49 @@
+html {
+    font-size: 15px;
+}
+
+.container {
+    height: 30mm;
+    width: 30mm;
+
+    height: 100cm;
+    width: 100cm;
+
+    height: 10in;
+    width: 10in;
+
+    height: 100px;
+    width: 100px;
+
+    height: 100pt;
+    width: 100pt;
+
+    height: 100pc;
+    width: 100pc;
+
+    border: 1px solid black;
+    font-size: 30px;
+}
+
+p {
+    /* font-size: 1.5em; */
+    font-size: 2rem;
+}
+
+/* .demo{
+    width: 600px;
+    height: 600px;
+    border: 1px solid black;
+}
+
+.demo > section{
+    width: 50%;
+    height: 50%;
+    border: 1px solid black;
+    } */
+
+.demo {
+    width: 80vw;
+    height: 80vh;
+    border: 1px solid black;
+}

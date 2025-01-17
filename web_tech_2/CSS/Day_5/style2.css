@@ -1,0 +1,47 @@
+#head{
+    color: blueviolet;
+    /* font-size: 50px; */
+    /* text-align: center; */
+    /* text-align: left; */
+    /* text-align: right; */
+
+    /* text-transform: capitalize; */
+    /* text-transform: lowercase; */
+    /* text-transform: uppercase; */
+
+    /* text-decoration: overline; */
+    /* text-decoration: underline; */
+    /* text-decoration: line-through; */
+
+    /* text-shadow: 2px 2px 4px black; */
+    /* font-weight: bolder; */
+    /* font-weight: normal; */
+    /* letter-spacing: 10px; */
+}
+
+.para{
+    text-transform: capitalize;
+    font-weight: bold;
+    font-family: cursive;
+    word-spacing: 5px;
+    text-indent: 40px;
+}
+
+.container{
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 5px 5px 4px black;
+}
+
+a{
+    text-decoration: none;
+    color: red;
+}
+
+ul{
+    /* list-style: none; */
+    list-style: armenian;
+}

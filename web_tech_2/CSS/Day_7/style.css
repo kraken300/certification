@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.head{
+    display: inline;
+}
+
+.s1{
+    /* display: inline-block; */
+    height: 200px;
+    width: 200px;
+    border: 1px solid black;
+}
+
+.container{
+    padding: 20px;
+    background: #ccc;
+    border: 1px solid black;
+    /* display: none; */
+    visibility: hidden;
+}

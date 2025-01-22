@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f2f4f7;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.as1 {
+    width: 58%;
+    display: flex;
+    align-items: center;
+}
+
+.art1 {
+    width: 100%;
+    height: 250px;
+    display: flex;
+}
+
+.art1>.s1 {
+    width: 35%;
+}
+
+.art1>.s2 {
+    width: 65%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.art1>.s2 p {
+    font-size: 30px;
+    color: rgb(42, 42, 42);
+}
+
+.as2 {
+    width: 42%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.art2 {
+    height: 350px;
+    width: 60%;
+    /* border: 1px solid black; */
+    padding: 10px 15px;
+    background: #fff;
+    box-shadow: 1px 1px 5px grey;
+    border-radius: 7px;
+}
+
+.display-text {
+    display: flex;
+    justify-content: center;
+    width: 60%;
+}
+
+.display-text>a {
+    color: #111;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.display-text>span {
+    font-size: 14px;
+}
+
+.display-text>a:hover {
+    text-decoration: underline;
+}
+
+.form-control {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-control>input {
+    padding: 15px 20px;
+    border-radius: 5px;
+    border: 1px solid rgb(177, 177, 177);
+    outline: none;
+    font: 17px;
+}
+
+.form-control button[type="submit"] {
+    padding: 15px 20px;
+    background: #0666ff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.form-control>a {
+    text-align: center;
+    color: #0666ff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.form-control button[type="button"] {
+    display: inline-block;
+    width: 55%;
+    border-radius: 5px;
+    padding: 15px 20px;
+    border: none;
+    background-color: #42a72a;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}

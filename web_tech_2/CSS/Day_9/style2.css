@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+section{
+    width: 100%;
+}
+
+.grid-container{
+    width: 90%;
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.grid-items{
+    height: 410px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+figure{
+    width: 100%;
+    height: 65%;
+}
+
+figure > img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.grid-items > aside{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.d1{
+    display: flex;
+    justify-content: space-between;
+}
+
+.d1 span{
+    color: black;
+}
+
+aside span{
+    color: black;
+}
+
+aside p{
+    color: gray;
+}

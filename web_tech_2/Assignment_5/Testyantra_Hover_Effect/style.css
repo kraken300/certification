@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", serif;
+}
+
+.container {
+    width: 100%;
+}
+
+header {
+    width: 100%;
+    height: 90px;
+    /* background: #000; */
+    /* border: 1px solid black; */
+}
+
+article {
+    width: 96%;
+    height: 90px;
+    /* border: 1px solid black; */
+    display: flex;
+    margin: 0 auto;
+}
+
+.demo {
+    height: 90px;
+}
+
+.a1 {
+    width: 50%;
+    /* border: 1px solid black; */
+    display: flex;
+    align-items: center;
+}
+
+.a2 {
+    width: 38%;
+    /* border: 1px solid black; */
+}
+
+.a2>ul {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    height: 90px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.a2>ul>li {
+    padding: 20px 20px 14px 0;
+    font-size: 15px;
+    font-weight: bold;
+    font-style: normal;
+    color: #133864;
+}
+
+.a2>ul>li:hover {
+    color: #F27F3D;
+    cursor: pointer;
+}
+
+.a3 {
+    width: 12%;
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.a3>button {
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    background: #F27F3D;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 30px;
+}
+
+.a3>button:hover {
+    background-color: #133864;
+}
+
+i {
+    margin-left: 4px;
+}
+
+
+/* Hover-Effect */
+.display-services {
+    position: absolute;
+    top: 66px;
+    left: 110px;
+    background: #fff;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    width: 230px;
+    height: 264px;
+    padding: 20px 5px;
+    display: none;
+}
+
+.display-partners {
+    position: absolute;
+    top: 66px;
+    left: 256px;
+    background: #fff;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    width: 230px;
+    height: 80px;
+    padding: 20px 5px;
+    display: none;
+}
+
+.display-services>ul,
+.display-partners>ul {
+    list-style: none;
+}
+
+.display-services>ul>li,
+.display-partners>ul>li {
+    padding: 8px 15px;
+    font-size: 16px;
+    font-weight: 600
+}
+
+.display-services>ul>li:hover,
+.display-partners>ul>li:hover {
+    color: #F27F3D;
+}
+
+.a2>ul>li:nth-child(2):hover+.display-services,
+.display-services:hover {
+    display: block;
+    z-index: 10;
+}
+
+.a2>ul>li:nth-child(3):hover+.display-partners,
+.display-partners:hover {
+    display: block;
+    z-index: 10;
+}
+
+.a2>ul>.services:hover+.display-partners,
+.display-partners:hover {
+    display: block;
+    z-index: 10;
+}
+
+/* .display-services:hover {
+    display: block;
+}
+
+*/

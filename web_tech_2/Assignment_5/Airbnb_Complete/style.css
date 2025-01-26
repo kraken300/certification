@@ -1,0 +1,418 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto", serif;
+}
+
+.container {
+    width: 100%;
+}
+
+header {
+    width: 100%;
+    height: 80px;
+    /* border: 1px solid black; */
+}
+
+.art1 {
+    height: 80px;
+    width: 94%;
+    margin: 0 auto;
+    /* border: 1px solid black; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.as1 {
+    /* border: 1px solid black; */
+    height: 80px;
+    width: 33%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 4px;
+}
+
+.as1>img {
+    cursor: pointer;
+}
+
+/* .as1>i {
+    font-size: 36px;
+    color: #FF385C;
+} */
+
+/* .as1>h1 {
+    font-size: 22px;
+    color: #FF385C;
+} */
+
+.as2 {
+    /* border: 1px solid black; */
+    height: 80px;
+    width: 34%;
+}
+
+.as2>ul {
+    height: 80px;
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+
+.as2>ul>li {
+    padding: 10px 16px;
+    font-size: 16px;
+    color: rgb(106, 106, 106);
+    border-radius: 20px;
+}
+
+.as2>ul>li:hover {
+    color: rgb(34, 34, 34);
+    background: rgb(244, 244, 244);
+    cursor: pointer;
+}
+
+.as3 {
+    height: 80px;
+    width: 33%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.as3>p {
+    font-size: 14px;
+    padding: 10px 16px;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+.as3>p:hover {
+    background: rgb(244, 244, 244);
+    cursor: pointer;
+}
+
+.as3>img {
+    padding: 10px 16px;
+    border-radius: 20px;
+}
+
+.as3>img:hover {
+    background: rgb(244, 244, 244);
+    cursor: pointer;
+}
+
+.as3>.profile {
+    display: flex;
+    align-items: center;
+    padding: 8px 8px 8px 14px;
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 30px;
+    gap: 16px;
+}
+
+.as3>.profile:hover {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.as3>.profile>i {
+    font-size: 16px;
+}
+
+/* Container 2 */
+.container2 {
+    width: 100%;
+}
+
+.art2 {
+    width: 60%;
+    height: 66px;
+    /* border: 1px solid black; */
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 40px;
+}
+
+.s1 {
+    width: 30%;
+    height: 66px;
+    padding: 14px 24px;
+    border-radius: 30px;
+}
+
+.s2 {
+    width: 18%;
+    height: 66px;
+    padding: 14px 24px;
+    border-radius: 30px;
+}
+
+.s3 {
+    width: 18%;
+    height: 66px;
+    padding: 14px 24px;
+    border-radius: 30px;
+}
+
+.s4 {
+    width: 34%;
+    height: 66px;
+    padding: 14px 24px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* .s5{
+    width: 10%;
+    padding: 0px 10px 0px 24px;
+    display: flex;
+    justify-content: end;
+} */
+
+.s4>button {
+    background: #ff385c;
+    padding: 15px;
+    border-radius: 50px;
+    border: none;
+}
+
+.s4>button:hover {
+    background: #DB0D63;
+    cursor: pointer;
+}
+
+.s4>button>i {
+    font-size: 16px;
+    color: #fff;
+}
+
+.p1 {
+    font-size: 12px;
+    margin-bottom: 4px;
+    font-weight: 500;
+}
+
+.p2 {
+    font-size: 14px;
+    color: rgb(106, 106, 106);
+}
+
+.s1:hover,
+.s2:hover,
+.s3:hover,
+.s4:hover {
+    background: #EBEBEB;
+    cursor: pointer;
+}
+
+.line {
+    height: 30px;
+    border: 0.5px solid rgb(222, 222, 222);
+}
+
+.hr {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 14px;
+    border-top: 0.2px solid #ececee;
+}
+
+/* Container 3 */
+.container3 {
+    width: 100%;
+    /* border: 1px solid red; */
+}
+
+.art3 {
+    /* border: 1px solid black; */
+    height: 80px;
+    width: 94%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.se1 {
+    /* border: 1px solid black; */
+    display: flex;
+    align-items: center;
+    height: 80px;
+    width: 76%;
+    justify-content: space-between;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.se1>.icons {
+    /* border: 1px solid black; */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.se1>.icons>img {
+    width: 24px;
+    height: 24px;
+}
+
+.se1>.icons>p {
+    font-size: 12px;
+    font-weight: 500;
+    color: rgb(106, 106, 106);
+}
+
+.se1>.icons>p:hover {
+    color: #000;
+}
+
+.se2 {
+    /* border: 1px solid black; */
+    width: 2%;
+    display: flex;
+    justify-content: center;
+}
+
+.se2>button {
+    padding: 4px 8px;
+    border-radius: 40px;
+    font-size: 1.2rem;
+    border: none;
+    background: white;
+    border: 1px solid rgb(180, 180, 180);
+}
+
+.se2>button:hover {
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.se3 {
+    border: 1px solid rgb(200, 200, 200);
+    width: 7%;
+    padding: 12px 0px;
+    border-radius: 12px;
+}
+
+.se3>.filters {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.se3>.filters>img {
+    width: 19px;
+    height: 20px;
+}
+
+.se3>.filters>p {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.se3:hover {
+    background: rgb(248, 248, 248);
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.se4 {
+    border: 1px solid rgb(200, 200, 200);
+    width: 16%;
+    padding: 2px 0px;
+    border-radius: 12px;
+}
+
+.se4>.switch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.se4>.switch>img {
+    width: 38px;
+    height: 42px;
+}
+
+.se4>.switch>p {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.se4:hover {
+    background: rgb(248, 248, 248);
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+
+/* Cards */
+section {
+    width: 100%;
+}
+
+.grid-container {
+    width: 94%;
+    margin: 16px auto 50px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.grid-items {
+    height: 410px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+figure {
+    width: 100%;
+    height: 65%;
+}
+
+figure>img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.grid-items>aside {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.d1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.d1 span {
+    color: black;
+}
+
+aside span {
+    color: black;
+}
+
+aside p {
+    color: gray;
+}

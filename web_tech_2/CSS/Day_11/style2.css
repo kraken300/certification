@@ -1,0 +1,41 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.demo{
+    /* width: 200px;
+    height: 200px;
+    border: 2px solid black; */
+    transition: 2s;
+
+    font-size: 200px;
+    color: red;
+    /* animation-name: box; */
+    /* animation-duration: 2s; */
+    /* animation-iteration-count: infinite; */
+    /* animation-direction: alternate-reverse; */
+    /* animation-delay: 5s; */
+    /* animation-timing-function: linear; */
+
+    animation: box 1s infinite alternate-reverse 2s linear;
+}
+
+@keyframes box{
+    from{
+        transform: translate(0,0);
+    }
+    to{
+        /* transform: translate(200px) rotate(3600deg) scale(0.8); */
+        /* background: brown; */
+        transform: scale(1.2);
+    }
+}

@@ -55,6 +55,7 @@ article {
     font-weight: bold;
     font-style: normal;
     color: #133864;
+    cursor: pointer;
 }
 
 .a2>ul>li:hover{
@@ -77,6 +78,7 @@ article {
     color: #fff;
     padding: 10px 22px;
     border-radius: 30px;
+    cursor: pointer;
 }
 
 .a3>button:hover {

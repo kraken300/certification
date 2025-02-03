@@ -3,5 +3,7 @@ public class ShopDriver {
         Shop s1 = new Shop("JMART", "MUMBAI", "JOHN", 20, 1, "LAPTOP", "LENOVO", 600);
 
         s1.displayShopInfo();
+
+        s1.getProduct().displayProductInfo();
     }
 }

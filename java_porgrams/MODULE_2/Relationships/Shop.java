@@ -35,6 +35,10 @@ public class Shop {
         return this.no_employees;
     }
 
+    public Product getProduct(){
+        return this.product;
+    }
+
     // SETTERS
     public void setShopName(String shop_name) {
         this.shop_name = shop_name;
@@ -50,6 +54,10 @@ public class Shop {
 
     public void setNoEmployees(int no_employees) {
         this.no_employees = no_employees;
+    }
+
+    public void setProduct(Product product){
+        this.product = product;
     }
 
     // DISPLAY METHOD

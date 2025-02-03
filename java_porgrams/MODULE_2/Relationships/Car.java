@@ -2,8 +2,9 @@ public class Car {
     private String brand;
     private int price;
     private String model;
-    private Engine engine;
+    private Engine engine; // HAS- A RELATIONSHIP ESTABLISHED
 
+    // CONSTRUCTORS
     public Car() {
 
     }
@@ -28,6 +29,10 @@ public class Car {
         return this.model;
     }
 
+    public Engine getEngine() {
+        return this.engine;
+    }
+
     // SETTERS
     public void setBrand(String brand) {
         this.brand = brand;
@@ -39,6 +44,10 @@ public class Car {
 
     public void setModel(String model) {
         this.model = model;
+    }
+
+    public void setEngine(Engine engine) {
+        this.engine = engine;
     }
 
     // DISPLAY METHOD

@@ -12,7 +12,6 @@ public class Fruit {
     }
 
     public void displayFruit() {
-        System.out.println("====FRUIT DETAILS");
         System.out.println("PRICE : " + this.price);
         System.out.println("Quantity : " + this.Qty);
     }

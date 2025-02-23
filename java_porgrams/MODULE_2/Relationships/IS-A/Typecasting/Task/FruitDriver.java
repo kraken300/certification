@@ -9,7 +9,7 @@ public class FruitDriver {
         System.out.println("====ENTER CUSTOMER DETAILS====");
         System.out.print("Enter ID : ");
         int id = sc.nextInt();
-        
+
         System.out.print("Enter Mobile Number : ");
         long mobile = sc.nextLong();
         outlet.customer = new Customer(id, mobile);
@@ -53,8 +53,9 @@ public class FruitDriver {
         } while (choice2 == 'Y' || choice2 == 'y');
 
         outlet.customer.displayCustomer();
-        outlet.displayCart(outlet.fruit);
-        outlet.billGenerator(outlet.fruit);
+        outlet.displayCart();
+        int bill = outlet.billGenerator();
+        System.out.println("BILL : " + bill);
         sc.close();
     }
 }

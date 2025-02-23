@@ -11,40 +11,42 @@ public class Outlet {
         this.fruit = fruit;
     }
 
-    public void displayCart(Fruit fruit) {
-        if (fruit instanceof Apple) {
+    public void displayCart() {
+        if (this.fruit instanceof Apple) {
             Apple apple = (Apple) fruit;
             System.out.println("\n\n==========CART===========");
             apple.displayFruit();
         }
 
-        else if (fruit instanceof Mango) {
+        else if (this.fruit instanceof Mango) {
             Mango mango = (Mango) fruit;
             System.out.println("\n\n==========CART===========");
             mango.displayFruit();
         }
 
-        else if (fruit instanceof Strawberry) {
+        else if (this.fruit instanceof Strawberry) {
             Strawberry strawberry = (Strawberry) fruit;
             System.out.println("\n\n==========CART===========");
             strawberry.displayFruit();
         }
     }
 
-    public void billGenerator(Fruit fruit) {
-        if (fruit instanceof Apple) {
-            Apple apple = (Apple) fruit;
-            System.out.println("BILL : " + apple.price * apple.Qty);
-        }
+    public int billGenerator() {
 
-        else if (fruit instanceof Mango) {
-            Mango mango = (Mango) fruit;
-            System.out.println("BILL : " + mango.price * mango.Qty);
-        }
+        return fruit.price * fruit.Qty;
+        // if (fruit instanceof Apple) {
+        // Apple apple = (Apple) fruit;
+        // System.out.println("BILL : " + apple.price * apple.Qty);
+        // }
 
-        else if (fruit instanceof Strawberry) {
-            Strawberry strawberry = (Strawberry) fruit;
-            System.out.println("BILL : " + strawberry.price * strawberry.Qty);
-        }
+        // else if (fruit instanceof Mango) {
+        // Mango mango = (Mango) fruit;
+        // System.out.println("BILL : " + mango.price * mango.Qty);
+        // }
+
+        // else if (fruit instanceof Strawberry) {
+        // Strawberry strawberry = (Strawberry) fruit;
+        // System.out.println("BILL : " + strawberry.price * strawberry.Qty);
+        // }
     }
 }

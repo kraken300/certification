@@ -42,7 +42,9 @@ public class CasioDriver {
                     break;
 
                 default:
-                    break;
+                    System.out.println("Invalid Input");
+                    System.out.println("Do you still want to continue? (Y/N)");
+                    choice2 = sc.next().charAt(0);
             }
 
         } while (choice2 == 'Y' || choice2 == 'y');

@@ -11,7 +11,7 @@ function countVowels(str) {
 
     for (let i = 0; i < str.length; i++) {
         let char = str[i].toLowerCase();
-        if (str[i] === "a" || str[i] === "e" || str[i] === "i" || str[i] === "o" || str[i] === "u") {
+        if (char === "a" || char === "e" || char === "i" || char === "o" || char === "u") {
             count++;
         }
     }

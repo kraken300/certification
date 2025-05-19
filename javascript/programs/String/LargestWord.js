@@ -3,6 +3,9 @@ let s = "An apple a day keeps doctor away";
 let r1 = largestWord(s);
 console.log(r1);
 
+let r2 = largestWord2(s);
+console.log(r2);
+
 function largestWord(str) {
     let arr = str.split(" ");
     // console.log(arr);
@@ -16,4 +19,13 @@ function largestWord(str) {
     }
 
     return largestStr;
+}
+
+function largestWord2(str) {
+    let arr = str.split(" ");
+
+    // let newArr = arr.sort((a,b)=>a.length - b.length);
+    arr.sort((a, b) => a.length - b.length);
+
+    return arr[arr.length - 1];
 }

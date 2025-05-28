@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 30</title>
+</head>
+
+<body>
+
+    <form class="form-control">
+        <label for="name">Enter Name :</label>
+        <input type="text" name="name" id="username" placeholder="name"> <br>
+
+        <label for="email">Enter Email :</label>
+        <input type="email" name="email" id="email" placeholder="email"> <br>
+
+        <label for="password">Enter Password :</label>
+        <input type="password" name="password" id="password" placeholder="password"> <br>
+
+        <label for="phone">Enter Phone :</label>
+        <input type="number" name="phone" id="phone" placeholder="phone"> <br>
+
+        <label for="dob">Enter DOB :</label>
+        <input type="date" name="dob" id="dob" placeholder="dob"> <br>
+
+        <label for="percentage">Enter Percentage :</label>
+        <input type="range" name="percentage" id="percentage" min="35" max="100">
+        <span class="display-percentage">50</span> <br>
+
+        <label for="gender">Select Gender :</label>
+        <div id="gender">
+            <input type="radio" name="gender" id="male" value="male"> <span>Male</span>
+            <input type="radio" name="gender" id="female" value="female">
+            <span>Female</span>
+            <input type="radio" name="gender" id="others" value="others">
+            <span>Others</span>
+        </div> <br>
+
+        <label for="skills">Select Skills :</label>
+        <div id="skills">
+            <input type="checkbox" name="skills" id="javascript" value="JavaScript"><span>JavaScript</span>
+            <input type="checkbox" name="skills" id="java" value="Java"><span>Java</span>
+            <input type="checkbox" name="skills" id="sql" value="SQL"><span>SQL</span>
+            <input type="checkbox" name="skills" id="python" value="Python"><span>Python</span>
+            <input type="checkbox" name="skills" id="react" value="React"><span>React</span>
+        </div> <br>
+
+        <label for="country">Select Country :</label>
+        <select name="country" id="country">
+            <option value="India">India</option>
+            <option value="Thailand">Thailand</option>
+            <option value="USA">USA</option>
+            <option value="UK">UK</option>
+            <option value="Italy">Italy</option>
+            <option value="Germany">Germany</option>
+        </select> <br><br>
+
+        <label for="message">Enter Message :</label>
+        <textarea name="message" id="" cols="20" rows="6" placeholder="message"></textarea> <br>
+
+        <input type="submit" value="Submit">
+
+    </form>
+
+    <script src="./App.js"></script>
+</body>
+
+</html>

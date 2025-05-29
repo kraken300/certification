@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 31</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        div,
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border: 2px solid black;
+        }
+
+        body {
+            height: 100vh;
+        }
+
+        .gp {
+            height: 300px;
+            width: 300px;
+            background: lightcoral;
+        }
+
+        .p {
+            height: 200px;
+            width: 200px;
+            background: lightblue;
+        }
+
+        .c {
+            height: 100px;
+            width: 100px;
+            background: lightgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="gp">
+        <h2>Grand Parent</h2>
+        <div class="p">
+            <h2>Parent</h2>
+            <div class="c">
+                <h2>Child</h2>
+            </div>
+        </div>
+    </div>
+
+    <script src="./App.js"></script>
+</body>
+
+</html>

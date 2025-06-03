@@ -1,0 +1,22 @@
+<%-- <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> --%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>========Person Details========</h1>
+	<h2>ID : ${pId}</h2>
+	<h2>Name : ${pName}</h2>
+	<h2>${pId}</h2>
+
+	<h1>========Bank Details========</h1>
+	<h2>Object Reference : ${bank}</h2>
+	<h2>Name : ${bank.name}</h2>
+	<h2>Branch : ${bank.branch}</h2>
+	<h2>IFSC Code : ${bank.ifsc}</h2>
+</body>
+</html>
+

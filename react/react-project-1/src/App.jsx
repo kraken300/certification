@@ -198,89 +198,193 @@
 // export default App;
 
 //? how to render the state value in JSX in function based component
-import React, { useState } from "react";
+// import React, { useState } from "react";
 
-const App = () => {
+// const App = () => {
 
-    let data = {
-        employees: [
-            {
-                id: 11,
-                name: "John",
-                designation: "Developer"
-            },
-            {
-                id: 12,
-                name: "Mike",
-                designation: "Tester"
-            },
-            {
-                id: 13,
-                name: "Smith",
-                designation: "Analyst"
-            },
-        ],
-        students: [
-            {
-                id: 21,
-                name: "Allen",
-                percentage: 80
-            },
-            {
-                id: 22,
-                name: "Steve",
-                percentage: 90
-            },
-            {
-                id: 23,
-                name: "James",
-                percentage: 85
-            },
-        ]
+//     let data = {
+//         employees: [
+//             {
+//                 id: 11,
+//                 name: "John",
+//                 designation: "Developer"
+//             },
+//             {
+//                 id: 12,
+//                 name: "Mike",
+//                 designation: "Tester"
+//             },
+//             {
+//                 id: 13,
+//                 name: "Smith",
+//                 designation: "Analyst"
+//             },
+//         ],
+//         students: [
+//             {
+//                 id: 21,
+//                 name: "Allen",
+//                 percentage: 80
+//             },
+//             {
+//                 id: 22,
+//                 name: "Steve",
+//                 percentage: 90
+//             },
+//             {
+//                 id: 23,
+//                 name: "James",
+//                 percentage: 85
+//             },
+//         ]
+//     }
+
+//     const [details, setDetails] = useState(data);
+//     return (
+//         <>
+//             <div className="container">
+//                 <h1 style={{ color: "red" }}>Employee Details</h1>
+//                 <section>
+//                     {
+//                         details.employees.map((v, i) => {
+//                             let { id, name, designation } = v;
+
+//                             return (
+//                                 <React.Fragment key={i + 1}>
+//                                     <h2>ID : {id}</h2>
+//                                     <h2>Name : {name}</h2>
+//                                     <h2>Designation : {designation}</h2>
+//                                     <hr />
+//                                 </React.Fragment>
+//                             )
+//                         })
+//                     }
+//                 </section>
+
+//                 <h1 style={{ color: "blue" }}>Student Details</h1>
+//                 <section>
+//                     {
+//                         details.students.map((v, i) => {
+//                             let { id, name, percentage } = v;
+//                             return (
+//                                 <React.Fragment key={i + 1}>
+//                                     <h2>ID : {id}</h2>
+//                                     <h2>Name : {name}</h2>
+//                                     <h2>Percentage : {percentage}</h2>
+//                                     <hr />
+//                                 </React.Fragment>
+//                             )
+//                         })
+//                     }
+//                 </section>
+//             </div>
+//         </>
+//     )
+// }
+
+// export default App;
+
+//! 13-06-2025
+//? how to update the state value in class based component:
+// import React from "react";
+
+// class App extends React.Component {
+//     constructor() {
+//         super();
+//         this.state = {
+//             name: "abc",
+//             id: 120
+//         }
+//     }
+
+//     render() {
+//         let { name, id } = this.state;
+//         console.log(this);
+
+//         setTimeout(() => this.setState({ name: "xyz", id: 300 }), 5000);
+//         return (
+//             <div className="container">
+//                 <h1>Name : {name}</h1>
+//                 <h2>ID : {id}</h2>
+//             </div>
+//         )
+//     }
+// }
+
+// export default App;
+
+//? how to update the state value in function based component:
+// import React, { useState } from 'react'
+
+// const App = () => {
+
+//     // let [state, setState] = React.useState({name:"abcd", id:120});
+//     let [name, setName] = useState("abc");
+//     let [id, setId] = useState(120);
+
+//     setTimeout(() => {
+//         // setState({name:"xyz", id:300});
+//         setName("xyz");
+//         setId(300);
+//     }, 4000);
+
+//     return (
+//         <div className='container'>
+//             <h1>Name : {name}</h1>
+//             <h1>ID : {id}</h1>
+//         </div>
+//     )
+// }
+
+// export default App;
+
+//? count example by taking function as an argument for updater function:
+// import React, { useState } from 'react'
+
+// const App = () => {
+
+//     let [count, setCount] = useState(0);
+//     const handleClick = (e) => {
+//         setCount((prev) => prev + 1);
+//         setCount((prev) => prev + 1);
+
+//         // setCount(count + 1);
+//         // setCount(count + 1);
+//     }
+//     return (
+//         <div className="container">
+//             <h1 onClick={handleClick}>Count : {count}</h1>
+//         </div>
+//     )
+// }
+
+// export default App;
+
+//? count example by taking function as an argument for this.setState() function:
+import React, { Component } from 'react';
+
+class App extends Component {
+    constructor() {
+        super();
+        this.state = {
+            count: 0
+        };
     }
 
-    const [details, setDetails] = useState(data);
-    return (
-        <>
+    handleClick = (e) => {
+        this.setState((prev) => {
+            console.log(prev);
+            return { count: prev.count + 1 }
+        })
+    }
+
+    render() {
+        return (
             <div className="container">
-                <h1 style={{ color: "red" }}>Employee Details</h1>
-                <section>
-                    {
-                        details.employees.map((v, i) => {
-                            let { id, name, designation } = v;
-
-                            return (
-                                <React.Fragment key={i + 1}>
-                                    <h2>ID : {id}</h2>
-                                    <h2>Name : {name}</h2>
-                                    <h2>Designation : {designation}</h2>
-                                    <hr />
-                                </React.Fragment>
-                            )
-                        })
-                    }
-                </section>
-
-                <h1 style={{ color: "blue" }}>Student Details</h1>
-                <section>
-                    {
-                        details.students.map((v, i) => {
-                            let { id, name, percentage } = v;
-                            return (
-                                <React.Fragment key={i + 1}>
-                                    <h2>ID : {id}</h2>
-                                    <h2>Name : {name}</h2>
-                                    <h2>Percentage : {percentage}</h2>
-                                    <hr />
-                                </React.Fragment>
-                            )
-                        })
-                    }
-                </section>
+                <h1 onClick={this.handleClick}>Count : {this.state.count}</h1>
             </div>
-        </>
-    )
+        )
+    }
 }
 
 export default App;
-

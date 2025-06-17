@@ -361,30 +361,103 @@
 // export default App;
 
 //? count example by taking function as an argument for this.setState() function:
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
 
-class App extends Component {
-    constructor() {
-        super();
-        this.state = {
-            count: 0
-        };
-    }
+// class App extends Component {
+//     constructor() {
+//         super();
+//         this.state = {
+//             count: 0
+//         };
+//     }
 
-    handleClick = (e) => {
-        this.setState((prev) => {
-            console.log(prev);
-            return { count: prev.count + 1 }
-        })
-    }
+//     handleClick = (e) => {
+//         this.setState((prev) => {
+//             console.log(prev);
+//             return { count: prev.count + 1 }
+//         })
+//     }
 
-    render() {
-        return (
-            <div className="container">
-                <h1 onClick={this.handleClick}>Count : {this.state.count}</h1>
-            </div>
-        )
-    }
+//     render() {
+//         return (
+//             <div className="container">
+//                 <h1 onClick={this.handleClick}>Count : {this.state.count}</h1>
+//             </div>
+//         )
+//     }
+// }
+
+// export default App;
+
+//! 17-06-2025
+//? Rendering json data in JSX
+// import React, { useState } from 'react';
+// import { products, demo } from "./products.json";
+// import "./App.css";
+
+// const App = () => {
+
+//   let [data, setData] = useState(products);
+//   setTimeout(() => setData(demo), 5000);
+//   return (
+//     <div className="container">
+//       <section>
+//         <table>
+//           <thead>
+//             <tr>
+//               <th>ID</th>
+//               <th>IMAGE</th>
+//               <th>TITLE</th>
+//               <th>DESCRIPTION</th>
+//               <th>PRICE</th>
+//             </tr>
+//           </thead>
+
+//           <tbody>
+//             {
+//               data?.map((v, i) => {
+//                 let { id, title, description, price, image, thumbnail } = v;
+//                 return (
+//                   <tr key={i + 1}>
+//                     <td>{id}</td>
+//                     <td>
+//                       <img src={thumbnail || image} alt={id} />
+//                     </td>
+//                     <td>{title}</td>
+//                     <td>{description}</td>
+//                     <td>{price}</td>
+//                   </tr>
+//                 )
+//               })
+//             }
+//           </tbody>
+//         </table>
+//       </section>
+//     </div>
+//   )
+// }
+
+// export default App;
+
+//? faker-js/faker package
+import React, { useState } from 'react';
+import { faker } from '@faker-js/faker';
+
+const App = () => {
+
+  let [data, setData] = useState(faker.image.avatar);
+
+  const handleClick = (e) => {
+    setData(faker.image.avatar)
+  }
+
+  console.log(data);
+  return (
+    <div>
+      <img src={data} alt="image" height={"400px"} width={"400px"} />
+      <button onClick={handleClick}>Get Image</button>
+    </div>
+  )
 }
 
 export default App;

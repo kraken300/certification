@@ -440,24 +440,83 @@
 // export default App;
 
 //? faker-js/faker package
-import React, { useState } from 'react';
-import { faker } from '@faker-js/faker';
+// import React, { useState } from 'react';
+// import { faker } from '@faker-js/faker';
 
-const App = () => {
+// const App = () => {
 
-  let [data, setData] = useState(faker.image.avatar);
+//   let [data, setData] = useState(faker.image.avatar);
 
-  const handleClick = (e) => {
-    setData(faker.image.avatar)
+//   const handleClick = (e) => {
+//     setData(faker.image.avatar)
+//   }
+
+//   console.log(data);
+//   return (
+//     <div>
+//       <img src={data} alt="image" height={"400px"} width={"400px"} />
+//       <button onClick={handleClick}>Get Image</button>
+//     </div>
+//   )
+// }
+
+// export default App;
+
+//! 18-06-2025
+//? increment, decrement, reset example using function based component
+// import React, { useState } from "react";
+
+// const App = () => {
+//   let [count, setCount] = useState(0);
+
+//   // const increment = (e) => setCount(count + 1);
+//   const increment = (e) => setCount((prev) => prev + 1);
+//   // const decrement = (e) => setCount(count - 1);
+//   const decrement = (e) => setCount(function (prev) {
+//     return prev - 1;
+//   });
+//   const reset = (e) => setCount(0);
+
+//   return (
+//     <div>
+//       <h1>Count : {count}</h1>
+//       <button onClick={increment}>Increment</button>
+//       <button onClick={decrement}>Decremenet</button>
+//       <button onClick={reset}>Reset</button>
+//     </div>
+//   )
+// }
+
+// export default App;
+
+//? Sending props in FBC
+// import React from 'react';
+// import Child from './Components/Child';
+
+// const App = () => {
+//   return (
+//     <div>
+//       <Child name="JOHN" id={1} />
+//       <Child name="SMITH" id={2} />
+//       <Child name="MIKE" id={3} />
+//     </div>
+//   )
+// }
+
+// export default App;
+
+//? Sending props in CBC
+import React, { Component } from 'react';
+import Child from './Components/Child';
+
+export default class App extends Component {
+  render() {
+    return (
+      <div>
+        <Child name="JOHN" id={1} />
+        <Child name="SMITH" id={2} />
+        <Child name="MIKE" id={3} />
+      </div>
+    )
   }
-
-  console.log(data);
-  return (
-    <div>
-      <img src={data} alt="image" height={"400px"} width={"400px"} />
-      <button onClick={handleClick}>Get Image</button>
-    </div>
-  )
 }
-
-export default App;

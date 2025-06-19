@@ -506,17 +506,100 @@
 // export default App;
 
 //? Sending props in CBC
-import React, { Component } from 'react';
-import Child from './Components/Child';
+// import React, { Component } from 'react';
+// import Child from './Components/Child';
 
-export default class App extends Component {
-  render() {
-    return (
-      <div>
-        <Child name="JOHN" id={1} />
-        <Child name="SMITH" id={2} />
-        <Child name="MIKE" id={3} />
-      </div>
-    )
-  }
-}
+// export default class App extends Component {
+//   render() {
+//     return (
+//       <div>
+//         <Child name="JOHN" id={1} />
+//         <Child name="SMITH" id={2} />
+//         <Child name="MIKE" id={3} />
+//       </div>
+//     )
+//   }
+// }
+
+//! 19-06-2025
+//? Task : increment, decrement, reset example using class based component
+// import React from "react";
+
+// class App extends React.Component {
+//   constructor() {
+//     super();
+//     this.state = {
+//       count: 0
+//     }
+//   }
+
+//   increment = (e) => {
+//     this.setState((prev) => {
+//       // console.log(prev);
+//       return { count: prev.count + 1 };
+//     })
+//   }
+
+//   decrement = (e) => {
+//     this.setState({ count: this.state.count - 1 });
+//   }
+
+//   reset = (e) => {
+//     this.setState({ count: 0 });
+//   }
+
+//   // decrement(e) {
+//   //   this.setState({ count: this.state.count - 1 });
+//   // }
+
+//   // reset(e) {
+//   //   this.setState({ count: 0 });
+//   // }
+
+//   render() {
+//     return (
+//       <div>
+//         <h1>Count  : {this.state.count}</h1>
+//         <button onClick={this.increment}>Increment</button>
+//         <button onClick={this.decrement}>Decrement</button>
+//         <button onClick={this.reset}>Reset</button>
+//       </div>
+//     )
+//   }
+// }
+
+// export default App;
+
+//? Task : Send products data (fake) from parent to child and render every data in child component
+// import React, { useState } from 'react';
+// import { products } from "./products.json";
+// import Products from './Components/Products';
+
+// const App = () => {
+//   let [data, setData] = useState(products);
+
+//   return (
+//     <>
+//       <Products products={data} />
+//     </>
+//   )
+// }
+
+// export default App;
+
+//? Task : Send state value and updater function through the props and update the state value in the child component
+// import React, { useState } from 'react';
+// import Child from './Components/Child';
+
+// const App = () => {
+//   let [value, setValue] = useState(0);
+
+//   return (
+//     <div>
+//       <Child value={value} setValue={setValue} />
+//     </div>
+//   )
+// }
+
+// export default App;
+

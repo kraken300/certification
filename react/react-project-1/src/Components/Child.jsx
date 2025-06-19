@@ -50,3 +50,102 @@
 
 // export default Child;
 
+//! 19-06-2025
+//? How to set the default value for the props in FBC:
+// import React from 'react';
+
+// const Child = ({ name, id, skills }) => {
+//     return (
+//         <div>
+//             <h1>Name : {name || "NA"}</h1>
+//             <h2>ID : {id || "NA"}</h2>
+//             <ul>
+//                 <h2>Skills: </h2>
+//                 {
+//                     skills?.map((v, i) => {
+//                         return (
+//                             <li key={i + 1}>
+//                                 {v}
+//                             </li>
+//                         )
+//                     }) || "NA"
+//                 }
+//             </ul>
+//         </div>
+//     )
+// }
+
+// export default Child;
+
+//? How to set the default value for the props in CBC:
+// import React, { Component } from 'react';
+
+// export default class Child extends Component {
+
+//     // static defaultProps = {
+//     //     name: "NA",
+//     //     id: "NA",
+//     //     skills: "NA"
+//     // }
+//     render() {
+//         console.log(this.props);
+//         let { name, id, skills } = this.props;
+//         return (
+//             <div>
+//                 <h1>Name : {name || "NA"}</h1>
+//                 <h2>ID : {id || "NA"}</h2>
+//                 <ul>
+//                     <h2>Skills: </h2>
+//                     {
+//                         skills?.map((v, i) => {
+//                             return (
+//                                 <li key={i + 1}>
+//                                     {v}
+//                                 </li>
+//                             )
+//                         }) || "NA"
+//                     }
+//                 </ul>
+//             </div>
+//         )
+//     }
+// }
+
+// Child.defaultProps = {
+//     name: "NA",
+//     id: "NA",
+//     skills: "NA"
+// }
+
+//? props.children
+// import React from 'react';
+
+// const Child = ({ children }) => {
+//     // console.log(this.props.children);
+//     console.log(children);
+//     return (
+//         <div>
+//             {children}
+//         </div>
+//     )
+// }
+
+// export default Child;
+
+//? how to transfer the data from child to parent:
+// import React from 'react';
+
+// const Child = ({ handleData }) => {
+
+//     const handleClick = () => {
+//         handleData("hello world");
+//     }
+
+//     return (
+//         <div>
+//             <button onClick={handleClick}>Send data</button>
+//         </div>
+//     )
+// }
+
+// export default Child;

@@ -603,3 +603,66 @@
 
 // export default App;
 
+//! 19-06-2025
+//? How to set the default value for the props
+// import React, { Component } from 'react'
+// import Child from './Components/Child'
+
+// export default class App extends Component {
+//   render() {
+//     return (
+//       <div>
+//         <Child id={120} skills={["js", "java"]} />
+//         <Child name={"Bob"} skills={["react", "node"]} />
+//         <Child name={"David"} id={140} />
+//       </div>
+//     )
+//   }
+// }
+
+//? props.children
+// import React from 'react';
+// import Child from './Components/Child';
+
+// const App = () => {
+//   return (
+//     <div>
+//       <Child>
+//         <h1>Name : Sachin</h1>
+//         <h2>ID : 123</h2>
+//       </Child>
+
+//       <Child>
+//         <h1>Name : Dhoni</h1>
+//         <h2>ID : 07</h2>
+//       </Child>
+
+//       <Child>
+//         <h1>Name : Virat</h1>
+//         <h2>ID : 80</h2>
+//       </Child>
+//     </div>
+//   )
+// }
+
+// export default App
+
+// //? How to transfer the data from child to parent:
+// import React, { useState } from 'react';
+// import Child from './Components/Child';
+
+// const App = () => {
+//   let [text, setText] = useState("");
+
+//   function handleData(data) {
+//     setText(data);
+//   }
+//   return (
+//     <div>
+//       <h1>Parent Text : {text}</h1>
+//       <Child handleData={handleData} />
+//     </div>
+//   )
+// }
+
+// export default App;

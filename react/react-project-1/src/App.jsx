@@ -666,3 +666,168 @@
 // }
 
 // export default App;
+
+//! 20-06-2025
+//? Conditional Rendering
+//? if else
+// import React, { useState } from 'react';
+
+// const App = () => {
+
+//     let [logIn, setLogIn] = useState(false);
+
+//     if (logIn) {
+//         return (
+//             <div className="container">
+//                 <section>
+//                     <ul>
+//                         <li>HOME</li>
+//                         <li>PRODUCTS</li>
+//                         <li>ABOUT US</li>
+//                         <li>CONTACT</li>
+//                         <li>Name : Sachin</li>
+//                     </ul>
+
+//                     <aside>
+//                         <button onClick={(e) => setLogIn(false)}>Logout</button>
+//                     </aside>
+//                 </section>
+//             </div>
+//         )
+//     }
+//     else {
+//         return (
+//             <div className="container">
+//                 <section>
+//                     <ul>
+//                         <li>HOME</li>
+//                         <li>PRODUCTS</li>
+//                         <li>ABOUT US</li>
+//                         <li>CONTACT</li>
+//                     </ul>
+
+//                     <aside>
+//                         <button onClick={(e) => setLogIn(true)}>Login</button>
+//                     </aside>
+//                 </section>
+//             </div>
+//         )
+//     }
+// }
+
+// export default App;
+
+//? switch case
+// import React, { useState } from 'react';
+
+// const App = () => {
+//     let [logIn, setLogIn] = useState(false);
+//     switch (logIn) {
+//         case true: {
+//             return (
+//                 <div className="container">
+//                     <section>
+//                         <ul>
+//                             <li>HOME</li>
+//                             <li>PRODUCTS</li>
+//                             <li>ABOUT US</li>
+//                             <li>CONTACT</li>
+//                             <li>Name : Sachin</li>
+//                         </ul>
+
+//                         <aside>
+//                             <button onClick={(e) => setLogIn(false)}>Logout</button>
+//                         </aside>
+//                     </section>
+//                 </div>
+
+//             )
+//         }
+//         case false: {
+//             return (
+//                 <div className="container">
+//                     <section>
+//                         <ul>
+//                             <li>HOME</li>
+//                             <li>PRODUCTS</li>
+//                             <li>ABOUT US</li>
+//                             <li>CONTACT</li>
+//                         </ul>
+
+//                         <aside>
+//                             <button onClick={(e) => setLogIn(true)}>Login</button>
+//                         </aside>
+//                     </section>
+//                 </div>
+//             )
+//         }
+//     }
+// }
+
+// export default App;
+
+//? ternary operator and && operator
+import React, { useState } from 'react';
+import { FaBell } from 'react-icons/fa';
+import "./App.css";
+
+const App = () => {
+    let [logIn, setLogIn] = useState(false);
+    let [notifications, setNotifications] = ([
+        "ABC", "XYZ", "LMN"
+    ]);
+
+    const IsUser = () => {
+        return (
+            <>
+                <div className="container" >
+                    <section>
+                        <ul>
+                            <li>HOME</li>
+                            <li>PRODUCTS</li>
+                            <li>ABOUT US</li>
+                            <li>CONTACT</li>
+                            <li>Name : Sachin</li>
+                        </ul>
+
+                        <aside>
+                            <button onClick={(e) => setLogIn(false)}>Logout</button>
+                        </aside>
+                    </section>
+                </div >
+            </>
+        )
+    }
+
+    const IsGuest = () => {
+        return (
+            <>
+                <div className="container" >
+                    <section>
+                        <ul>
+                            <li>HOME</li>
+                            <li>PRODUCTS</li>
+                            <li>ABOUT US</li>
+                            <li>CONTACT</li>
+                        </ul>
+
+                        <aside>
+                            <button onClick={(e) => setLogIn(true)}>Login</button>
+                            <FaBell className="bell" style={{ fontSize: "20px" }} />
+                            <sup style={{fontSize:"20px"}}>{notifications.length > 0 && notifications.length}</sup>
+                        </aside>
+                    </section>
+                </div >
+            </>
+        )
+    }
+
+    return (
+        <>
+            {logIn ? <IsUser /> : <IsGuest />}
+            <div className={logIn ? "active" : "inactive"}>{logIn ? "Active" : "Inactive"}</div>
+        </>
+    )
+}
+
+export default App;

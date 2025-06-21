@@ -767,67 +767,275 @@
 // export default App;
 
 //? ternary operator and && operator
-import React, { useState } from 'react';
-import { FaBell } from 'react-icons/fa';
-import "./App.css";
+// import React, { useState } from 'react';
+// import { FaBell } from 'react-icons/fa';
+// import "./App.css";
 
-const App = () => {
-    let [logIn, setLogIn] = useState(false);
-    let [notifications, setNotifications] = ([
-        "ABC", "XYZ", "LMN"
-    ]);
+// const App = () => {
+//     let [logIn, setLogIn] = useState(false);
+//     let [notifications, setNotifications] = ([
+//         "ABC", "XYZ", "LMN"
+//     ]);
 
-    const IsUser = () => {
-        return (
-            <>
-                <div className="container" >
-                    <section>
-                        <ul>
-                            <li>HOME</li>
-                            <li>PRODUCTS</li>
-                            <li>ABOUT US</li>
-                            <li>CONTACT</li>
-                            <li>Name : Sachin</li>
-                        </ul>
+//     const IsUser = () => {
+//         return (
+//             <>
+//                 <div className="container" >
+//                     <section>
+//                         <ul>
+//                             <li>HOME</li>
+//                             <li>PRODUCTS</li>
+//                             <li>ABOUT US</li>
+//                             <li>CONTACT</li>
+//                             <li>Name : Sachin</li>
+//                         </ul>
 
-                        <aside>
-                            <button onClick={(e) => setLogIn(false)}>Logout</button>
-                        </aside>
-                    </section>
-                </div >
-            </>
-        )
-    }
+//                         <aside>
+//                             <button onClick={(e) => setLogIn(false)}>Logout</button>
+//                         </aside>
+//                     </section>
+//                 </div >
+//             </>
+//         )
+//     }
 
-    const IsGuest = () => {
-        return (
-            <>
-                <div className="container" >
-                    <section>
-                        <ul>
-                            <li>HOME</li>
-                            <li>PRODUCTS</li>
-                            <li>ABOUT US</li>
-                            <li>CONTACT</li>
-                        </ul>
+//     const IsGuest = () => {
+//         return (
+//             <>
+//                 <div className="container" >
+//                     <section>
+//                         <ul>
+//                             <li>HOME</li>
+//                             <li>PRODUCTS</li>
+//                             <li>ABOUT US</li>
+//                             <li>CONTACT</li>
+//                         </ul>
 
-                        <aside>
-                            <button onClick={(e) => setLogIn(true)}>Login</button>
-                            <FaBell className="bell" style={{ fontSize: "20px" }} />
-                            <sup style={{fontSize:"20px"}}>{notifications.length > 0 && notifications.length}</sup>
-                        </aside>
-                    </section>
-                </div >
-            </>
-        )
-    }
+//                         <aside>
+//                             <button onClick={(e) => setLogIn(true)}>Login</button>
+//                             <FaBell className="bell" style={{ fontSize: "20px" }} />
+//                             <sup style={{fontSize:"20px"}}>{notifications.length > 0 && notifications.length}</sup>
+//                         </aside>
+//                     </section>
+//                 </div >
+//             </>
+//         )
+//     }
 
-    return (
-        <>
-            {logIn ? <IsUser /> : <IsGuest />}
-            <div className={logIn ? "active" : "inactive"}>{logIn ? "Active" : "Inactive"}</div>
-        </>
-    )
-}
+//     return (
+//         <>
+//             {logIn ? <IsUser /> : <IsGuest />}
+//             <div className={logIn ? "active" : "inactive"}>{logIn ? "Active" : "Inactive"}</div>
+//         </>
+//     )
+// }
 
-export default App;
+// export default App;
+
+//! 21-06-2025
+//? ref in CBC:
+// import React, { Component } from "react";
+
+// class App extends Component {
+
+//     constructor() {
+//         super();
+//         this.divRef = React.createRef();
+//     }
+
+//     render() {
+//         console.log(this.divRef.current)
+
+//         setTimeout(() => {
+//             // document.querySelector("h1").style.color = "red";
+//             this.divRef.current.style.color = "red";
+//             console.log(this.divRef.current);
+//         }, 4000);
+
+//         return (
+//             <h1 ref={this.divRef}>Hello World</h1>
+//         )
+//     }
+// }
+
+// export default App;
+
+//? ref in FBC:
+// import React from 'react';
+
+// const App = () => {
+
+//     let h1Ref = React.useRef();
+
+//     console.log(h1Ref);
+
+//     setTimeout(() => {
+//         h1Ref.current.style.color = "blue";
+//         console.log(h1Ref);
+//         console.log(h1Ref.current);
+//     }, 4000);
+
+//     return (
+//         <h1 ref={h1Ref}>Hello World</h1>
+//     )
+// }
+
+// export default App;
+
+//? How to manage the focus using ref:
+// import React, { useRef } from 'react';
+
+// const App = () => {
+
+//     let inputRef = useRef(null);
+
+//     let handleClick = (e) => {
+//         inputRef.current.focus();
+//         inputRef.current.style.background = "green";
+//     }
+
+//     return (
+//         <div>
+//             <input type="text" name="username" id="username" placeholder="Enter Username" ref={inputRef} />
+//             <button onClick={handleClick}>Login</button>
+//         </div>
+//     )
+// }
+
+// export default App;
+
+//? How to control the media player using ref:
+// import React, { useRef, useState } from 'react';
+// // import video from "../public/videos/video.mp4";
+
+// const App = () => {
+//     let [play, setPlay] = useState(false);
+//     let videoRef = useRef(null);
+
+//     let handleClick = (e) => {
+//         setPlay(!play);
+//         if (play) {
+//             videoRef.current.play();
+//         }
+//         else {
+//             videoRef.current.pause();
+//         }
+//     }
+
+//     return (
+//         <div>
+//             <video src={"/videos/video.mp4"} height={"500px"} width={"500px"} ref={videoRef} onClick={handleClick}></video>
+//         </div>
+//     )
+// }
+
+// export default App;
+
+//? Uncontrolled Component (CBC):
+// import React, { Component } from 'react'
+
+// export default class App extends Component {
+
+//     constructor() {
+//         super();
+//         this.formRef = React.createRef();
+//         this.usernameRef = React.createRef();
+//         this.passwordRef = React.createRef();
+//     }
+
+//     handleSubmit = (e) => {
+//         e.preventDefault();
+//         // let user = this.usernameRef.current.value;
+//         // let pass = this.passwordRef.current.value;
+//         // console.log("Username :" + user);
+//         // console.log("Password :" + pass);
+
+//         let formData = new FormData(this.formRef.current);
+//         let finalData = Object.fromEntries(formData);
+//         console.log(finalData);
+//     }
+
+//     render() {
+//         return (
+//             <div className="demo">
+//                 <form onSubmit={this.handleSubmit} ref={this.formRef}>
+//                     <input type="text" name="username" id="username" placeholder="Enter username" ref={this.usernameRef} />
+//                     <input type="password" name="password" id="password" placeholder="Enter password" ref={this.passwordRef} />
+//                     {/* <button onClick={handleSubmit}>Submit</button> */}
+//                     <button type="submit">Submit</button>
+//                 </form>
+//             </div>
+//         )
+//     }
+// }
+
+//? Uncontrolled Component (FBC):
+// import React, { useRef } from 'react';
+
+// const App = () => {
+
+//     let usernameRef = React.useRef(null);
+//     let passwordRef = useRef(null);
+//     let formRef = useRef(null);
+
+//     let handleSubmit = (e) => {
+//         e.preventDefault();
+//         // let username = usernameRef.current.value;
+//         // let password = passwordRef.current.value;
+//         // let data = { username, password };
+//         // console.log(data);
+
+//         let formData = new FormData(formRef.current);
+//         let finalData = Object.fromEntries(formData);
+//         console.log(finalData);
+//     }
+
+//     return (
+//         <div className="container">
+//             <form onSubmit={handleSubmit} ref={formRef}>
+//                 <input type="text" name="username" id="username" ref={usernameRef} placeholder="Enter username" />
+//                 <input type="password" name="password" id="password" ref={passwordRef} placeholder="Enter password" />
+//                 {/* <button type="submit" onClick={handleSubmit}>Submit</button> */}
+//                 <button type="submit">Submit</button>
+//             </form>
+//         </div>
+//     )
+// }
+
+// export default App;
+
+//? Controlled Component (FBC):
+// import React, { useState } from "react";
+
+// const App = () => {
+
+//     let [username, setUsername] = useState("");
+//     let [password, setPassword] = useState("");
+
+//     let handleSubmit = (e) => {
+//         e.preventDefault();
+//         let data = { username, password };
+//         console.log(data);
+//     }
+
+//     let handleUsername = (e) => {
+//         setUsername(e.target.value);
+//     }
+
+//     // let handlePassword = (e) => {
+//     //     setPassword(e.target.value);
+//     // }
+
+//     return (
+//         <div>
+//             <form onSubmit={handleSubmit}>
+//                 <input type="text" name="username" id="username" value={username} onChange={handleUsername} placeholder="Enter username" />
+//                 <input type="password" name="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter password" />
+//                 <button type="submit">Submit</button>
+//             </form>
+//         </div>
+//     )
+// }
+
+// export default App;
+

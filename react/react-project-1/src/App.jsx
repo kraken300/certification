@@ -1040,98 +1040,299 @@
 // export default App;
 
 //? TASK: Uncontrolled Component (FBC):
-import React, { useRef, useState } from 'react';
+// import React, { useRef, useState } from 'react';
+// import countries from "./countries.json";
+
+// const App = () => {
+
+//     let formRef = useRef(null);
+//     let usernameRef = React.useRef(null);
+//     let passwordRef = useRef(null);
+//     let emailRef = useRef(null);
+//     let dobRef = useRef(null);
+//     // let percentageRef = useRef(10);
+
+//     let genderMaleRef = useRef();
+//     let genderFemaleRef = useRef();
+//     let genderOthersRef = useRef();
+
+//     let javaRef = useRef(null);
+//     let pythonRef = useRef(null);
+//     let sqlRef = useRef(null);
+//     let javascriptRef = useRef(null);
+
+//     let optionRef = useRef(null);
+
+//     let textAreaRef = useRef(null);
+
+//     let handleSubmit = (e) => {
+//         e.preventDefault();
+
+//         // let formData = new FormData(formRef.current);
+//         // // console.log(formData.getAll("skills"));
+//         // let data = Object.fromEntries(formData);
+//         // let finalData = { ...data, skills: formData.getAll("skills") };
+//         // console.log(finalData);
+
+//         let username = usernameRef.current.value;
+//         let password = passwordRef.current.value;
+//         let email = emailRef.current.value;
+//         let dob = dobRef.current.value;
+//         // let percentage = percentageRef.current.value;
+
+//         let gender = genderMaleRef.current.checked ? "male" : genderFemaleRef.current.checked ? "female" : genderOthersRef.current.checked ? "others" : "";
+
+//         let skillsArr = [];
+//         javaRef.current.checked && skillsArr.push(javaRef.current.value);
+//         pythonRef.current.checked && skillsArr.push(pythonRef.current.value);
+//         sqlRef.current.checked && skillsArr.push(sqlRef.current.value);
+//         javascriptRef.current.checked && skillsArr.push(javascriptRef.current.value);
+
+//         // console.log(optionRef.current.value);
+//         let country = optionRef.current.value
+
+//         let textArea = textAreaRef.current.value;
+
+//         let finalData = {
+//             username, password, email, dob, gender, skillsArr, country, textArea
+//         }
+
+//         console.log(finalData);
+//     }
+
+//     return (
+//         <div className="container">
+//             <form onSubmit={handleSubmit} ref={formRef}>
+
+//                 <input type="text" name="username" id="username" placeholder="Enter username" ref={usernameRef} /> <br />
+
+//                 <input type="password" name="password" id="password" placeholder="Enter password" ref={passwordRef} /> <br />
+
+//                 <input type="email" name="email" id="email" placeholder="Enter email" ref={emailRef} /> <br />
+
+//                 <input type="date" name="dob" id="dob" placeholder="Enter dob" ref={dobRef} /> <br />
+
+//                 {/* <label htmlFor="percentage">Select percentage : </label> */}
+//                 {/* <input type="range" name="percentage" id="percentage" ref={percentageRef} /> <br /><span>{percentageRef.current}</span><br/> */}
+
+//                 <label htmlFor="gender">Select Gender : </label>
+//                 <div className="gender" id="gender">
+//                     <input type="radio" name="gender" id="male" value={"male"} ref={genderMaleRef} /><span>Male</span>
+//                     <input type="radio" name="gender" id="female" value={"female"} ref={genderFemaleRef} /><span>Female</span>
+//                     <input type="radio" name="gender" id="others" value={"others"} ref={genderOthersRef} /><span>Others</span>
+//                 </div>
+//                 <br />
+
+//                 <label htmlFor="skills">Select skills : </label>
+//                 <input type="checkbox" name="skills" id="java" value={"java"} ref={javaRef} /><span>Java</span>
+//                 <input type="checkbox" name="skills" id="python" value={"python"} ref={pythonRef} /><span>Python</span>
+//                 <input type="checkbox" name="skills" id="sql" value={"sql"} ref={sqlRef} /><span>SQL</span>
+//                 <input type="checkbox" name="skills" id="javascript" value={"javascript"} ref={javascriptRef} /><span>Javascript</span>
+//                 <br />
+
+//                 <label htmlFor="country">Select country : </label>
+//                 <select name="country" id="country" ref={optionRef}>
+//                     {
+//                         countries?.map((v, i) => {
+//                             return (
+//                                 <option key={i + 1} value={v.name}>{v.name}</option>
+//                             )
+//                         })
+//                     }
+//                 </select>
+//                 <br />
+
+//                 <textarea name="comment" id="comment" cols="30" rows="8" placeholder="Enter comment" ref={textAreaRef}></textarea>
+//                 <br />
+
+//                 {/* <button type="submit" onClick={handleSubmit}>Submit</button> */}
+//                 <button type="submit">Submit</button>
+//             </form>
+//         </div>
+//     )
+// }
+
+// export default App;
+
+//! 23-06-2025
+//? Controlled Component (CBC):
+// import React, { Component } from 'react';
+// import countries from "./countries.json";
+
+// class App extends Component {
+
+//     constructor() {
+//         super();
+//         this.state = {
+//             username: "",
+//             email: "",
+//             password: "",
+//             dob: "",
+//             gender: "",
+//             skills: [],
+//             percentage: 10,
+//             country: "",
+//             comment: ""
+//         }
+//         // this.userRef = React.createRef();
+//     }
+
+//     handleChange = (e) => {
+//         console.log(e.target.name + " : " + e.target.value);
+
+//         let { name, value } = e.target;
+
+//         this.setState({ ...this.state, [name]: value });
+//     }
+
+//     handleSkillsChange = (e) => {
+//         let { name, value } = e.target;
+
+//         if (this.state.skills.includes(value) == false) {
+//             this.state.skills.push(value);
+//         }
+
+//         else if (this.state.skills.includes(value) === true) {
+//             let index = this.state.skills.indexOf(value);
+//             this.state.skills.splice(index, 1);
+//         }
+//         console.log(this.state.skills);
+//     }
+
+//     handleSubmit = (e) => {
+//         e.preventDefault();
+//         console.log(this.state);
+//     }
+
+//     render() {
+//         return (
+//             <div className="container">
+//                 <form onSubmit={this.handleSubmit}>
+
+//                     <input type="text" name="username" id="username" placeholder="Enter username" value={this.state.username} onChange={this.handleChange} /> <br />
+
+//                     <input type="password" name="password" id="password" placeholder="Enter password" value={this.state.password} onChange={this.handleChange} /> <br />
+
+//                     <input type="email" name="email" id="email" placeholder="Enter email" value={this.state.email} onChange={this.handleChange} /> <br />
+
+//                     <input type="date" name="dob" id="dob" placeholder="Enter dob" value={this.state.dob} onChange={this.handleChange} /> <br />
+
+//                     <label htmlFor="percentage">Select Percentage : </label>
+//                     <input type="range" name="percentage" id="percentage" value={this.state.percentage} onChange={this.handleChange} min={1} max={100} /> <span>{this.state.percentage}</span> <br />
+
+//                     <label htmlFor="gender">Select Gender : </label>
+//                     <div className="gender" id="gender" value={this.state.gender} onChange={this.handleChange}>
+//                         <input type="radio" name="gender" id="male" value={"male"} /><span>Male</span>
+//                         <input type="radio" name="gender" id="female" value={"female"} /><span>Female</span>
+//                         <input type="radio" name="gender" id="others" value={"others"} /><span>Others</span>
+//                     </div><br />
+
+//                     <label htmlFor="skills">Select skills : </label>
+//                     <div className="skills" id="skills" onChange={this.handleSkillsChange}>
+//                         <input type="checkbox" name="skills" id="java" value={"java"} /><span>Java</span>
+//                         <input type="checkbox" name="skills" id="python" value={"python"} /><span>Python</span>
+//                         <input type="checkbox" name="skills" id="sql" value={"sql"} /><span>SQL</span>
+//                         <input type="checkbox" name="skills" id="javascript" value={"javascript"} /><span>Javascript</span>
+//                     </div>
+//                     <br />
+
+//                     <label htmlFor="country">Select country : </label>
+//                     <select name="country" id="country" value={this.state.country} onChange={this.handleChange}>
+//                         {
+//                             countries?.map((v, i) => {
+//                                 return (
+//                                     <option key={i + 1} value={v.name}>{v.name}</option>
+//                                 )
+//                             })
+//                         }
+//                     </select>
+//                     <br />
+
+//                     <textarea name="comment" id="comment" cols="30" rows="8" placeholder="Enter comment" value={this.state.comment} onChange={this.handleChange}></textarea>
+//                     <br />
+
+//                     {/* <button type="submit" onClick={handleSubmit}>Submit</button> */}
+//                     <button type="submit">Submit</button>
+//                 </form>
+//             </div>
+//         )
+//     }
+// }
+
+// export default App;
+
+//? Controlled Component (FBC):
+import React, { useState } from 'react';
 import countries from "./countries.json";
 
 const App = () => {
 
-    let formRef = useRef(null);
-    let usernameRef = React.useRef(null);
-    let passwordRef = useRef(null);
-    let emailRef = useRef(null);
-    let dobRef = useRef(null);
-    // let percentageRef = useRef(10);
+    let [data, setData] = useState({
+        username: "",
+        email: "",
+        password: "",
+        dob: "",
+        gender: "",
+        skills: [],
+        percentage: 10,
+        country: "",
+        comment: ""
+    });
 
-    let genderMaleRef = useRef();
-    let genderFemaleRef = useRef();
-    let genderOthersRef = useRef();
+    let handleChange = (e) => {
+        let { name, value } = e.target;
+        setData({ ...data, [name]: value });
+    }
 
-    let javaRef = useRef(null);
-    let pythonRef = useRef(null);
-    let sqlRef = useRef(null);
-    let javascriptRef = useRef(null);
+    let handleSkillsChange = (e) => {
+        let { name, value } = e.target;
 
-    let optionRef = useRef(null);
-
-    let textAreaRef = useRef(null);
+        if (data.skills.includes(value) == false) data.skills.push(value);
+        else if (data.skills.includes(value) == true) {
+            let index = data.skills.indexOf(value);
+            data.skills.splice(index, 1);
+        }
+        console.log(data.skills);
+    }
 
     let handleSubmit = (e) => {
         e.preventDefault();
-
-        // let formData = new FormData(formRef.current);
-        // // console.log(formData.getAll("skills"));
-        // let data = Object.fromEntries(formData);
-        // let finalData = { ...data, skills: formData.getAll("skills") };
-        // console.log(finalData);
-
-        let username = usernameRef.current.value;
-        let password = passwordRef.current.value;
-        let email = emailRef.current.value;
-        let dob = dobRef.current.value;
-        // let percentage = percentageRef.current.value;
-
-        let gender = genderMaleRef.current.checked ? "male" : genderFemaleRef.current.checked ? "female" : genderOthersRef.current.checked ? "others" : "";
-
-        let skillsArr = [];
-        javaRef.current.checked && skillsArr.push(javaRef.current.value);
-        pythonRef.current.checked && skillsArr.push(pythonRef.current.value);
-        sqlRef.current.checked && skillsArr.push(sqlRef.current.value);
-        javascriptRef.current.checked && skillsArr.push(javascriptRef.current.value);
-
-        // console.log(optionRef.current.value);
-        let country = optionRef.current.value
-
-        let textArea = textAreaRef.current.value;
-
-        let finalData = {
-            username, password, email, dob, gender, skillsArr, country, textArea
-        }
-
-        console.log(finalData);
+        console.log(data);
     }
 
     return (
         <div className="container">
-            <form onSubmit={handleSubmit} ref={formRef}>
+            <form onSubmit={handleSubmit}>
 
-                <input type="text" name="username" id="username" placeholder="Enter username" ref={usernameRef} /> <br />
+                <input type="text" name="username" id="username" placeholder="Enter username" value={data.username} onChange={handleChange} /> <br />
 
-                <input type="password" name="password" id="password" placeholder="Enter password" ref={passwordRef} /> <br />
+                <input type="password" name="password" id="password" placeholder="Enter password" value={data.password} onChange={handleChange} /> <br />
 
-                <input type="email" name="email" id="email" placeholder="Enter email" ref={emailRef} /> <br />
+                <input type="email" name="email" id="email" placeholder="Enter email" value={data.email} onChange={handleChange} /> <br />
 
-                <input type="date" name="dob" id="dob" placeholder="Enter dob" ref={dobRef} /> <br />
+                <input type="date" name="dob" id="dob" placeholder="Enter dob" value={data.dob} onChange={handleChange} /> <br />
 
-                {/* <label htmlFor="percentage">Select percentage : </label> */}
-                {/* <input type="range" name="percentage" id="percentage" ref={percentageRef} /> <br /><span>{percentageRef.current}</span><br/> */}
+                <label htmlFor="percentage">Select Percentage : </label>
+                <input type="range" name="percentage" id="percentage" value={data.percentage} onChange={handleChange} min={1} max={100} /> <span>{data.percentage}</span> <br />
 
                 <label htmlFor="gender">Select Gender : </label>
-                <div className="gender" id="gender">
-                    <input type="radio" name="gender" id="male" value={"male"} ref={genderMaleRef} /><span>Male</span>
-                    <input type="radio" name="gender" id="female" value={"female"} ref={genderFemaleRef} /><span>Female</span>
-                    <input type="radio" name="gender" id="others" value={"others"} ref={genderOthersRef} /><span>Others</span>
+                <div className="gender" id="gender" value={data.gender} onChange={handleChange}>
+                    <input type="radio" name="gender" id="male" value={"male"} /><span>Male</span>
+                    <input type="radio" name="gender" id="female" value={"female"} /><span>Female</span>
+                    <input type="radio" name="gender" id="others" value={"others"} /><span>Others</span>
+                </div><br />
+
+                <label htmlFor="skills">Select skills : </label>
+                <div className="skills" id="skills" onChange={handleSkillsChange}>
+                    <input type="checkbox" name="skills" id="java" value={"java"} /><span>Java</span>
+                    <input type="checkbox" name="skills" id="python" value={"python"} /><span>Python</span>
+                    <input type="checkbox" name="skills" id="sql" value={"sql"} /><span>SQL</span>
+                    <input type="checkbox" name="skills" id="javascript" value={"javascript"} /><span>Javascript</span>
                 </div>
                 <br />
 
-                <label htmlFor="skills">Select skills : </label>
-                <input type="checkbox" name="skills" id="java" value={"java"} ref={javaRef} /><span>Java</span>
-                <input type="checkbox" name="skills" id="python" value={"python"} ref={pythonRef} /><span>Python</span>
-                <input type="checkbox" name="skills" id="sql" value={"sql"} ref={sqlRef} /><span>SQL</span>
-                <input type="checkbox" name="skills" id="javascript" value={"javascript"} ref={javascriptRef} /><span>Javascript</span>
-                <br />
-
                 <label htmlFor="country">Select country : </label>
-                <select name="country" id="country" ref={optionRef}>
+                <select name="country" id="country" value={data.country} onChange={handleChange}>
                     {
                         countries?.map((v, i) => {
                             return (
@@ -1142,7 +1343,7 @@ const App = () => {
                 </select>
                 <br />
 
-                <textarea name="comment" id="comment" cols="30" rows="8" placeholder="Enter comment" ref={textAreaRef}></textarea>
+                <textarea name="comment" id="comment" cols="30" rows="8" placeholder="Enter comment" value={data.comment} onChange={handleChange}></textarea>
                 <br />
 
                 {/* <button type="submit" onClick={handleSubmit}>Submit</button> */}
@@ -1153,4 +1354,3 @@ const App = () => {
 }
 
 export default App;
-

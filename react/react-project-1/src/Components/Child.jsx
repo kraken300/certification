@@ -149,3 +149,34 @@
 // }
 
 // export default Child;
+
+//! 24-06-2025
+import React, { Component } from 'react'
+export default class Child extends Component {
+    constructor() {
+        super();
+        this.state = {
+            count: 100
+        }
+        console.log("constructor Child");
+    }
+
+    static getDerivedStateFromProps(props, state) {
+        console.log("getDerivedStateFromProps() Child");
+        console.log(props, state);
+        // return props;
+        return { count: props.count };
+    }
+
+    componentDidMount() {
+        console.log("componentDidMount() Child");
+    }
+
+    render() {
+        console.log(this.state);
+        console.log("render() Child");
+        return (
+            <h2>Hello World Child</h2>
+        )
+    }
+}

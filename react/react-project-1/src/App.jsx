@@ -1262,95 +1262,206 @@
 // export default App;
 
 //? Controlled Component (FBC):
-import React, { useState } from 'react';
-import countries from "./countries.json";
+// import React, { useState } from 'react';
+// import countries from "./countries.json";
 
-const App = () => {
+// const App = () => {
 
-    let [data, setData] = useState({
-        username: "",
-        email: "",
-        password: "",
-        dob: "",
-        gender: "",
-        skills: [],
-        percentage: 10,
-        country: "",
-        comment: ""
-    });
+//     let [data, setData] = useState({
+//         username: "",
+//         email: "",
+//         password: "",
+//         dob: "",
+//         gender: "",
+//         skills: [],
+//         percentage: 10,
+//         country: "",
+//         comment: ""
+//     });
 
-    let handleChange = (e) => {
-        let { name, value } = e.target;
-        setData({ ...data, [name]: value });
-    }
+//     let handleChange = (e) => {
+//         let { name, value } = e.target;
+//         setData({ ...data, [name]: value });
+//     }
 
-    let handleSkillsChange = (e) => {
-        let { name, value } = e.target;
+//     let handleSkillsChange = (e) => {
+//         let { name, value } = e.target;
 
-        if (data.skills.includes(value) == false) data.skills.push(value);
-        else if (data.skills.includes(value) == true) {
-            let index = data.skills.indexOf(value);
-            data.skills.splice(index, 1);
+//         if (data.skills.includes(value) == false) data.skills.push(value);
+//         else if (data.skills.includes(value) == true) {
+//             let index = data.skills.indexOf(value);
+//             data.skills.splice(index, 1);
+//         }
+//         console.log(data.skills);
+//     }
+
+//     let handleSubmit = (e) => {
+//         e.preventDefault();
+//         console.log(data);
+//     }
+
+//     return (
+//         <div className="container">
+//             <form onSubmit={handleSubmit}>
+
+//                 <input type="text" name="username" id="username" placeholder="Enter username" value={data.username} onChange={handleChange} /> <br />
+
+//                 <input type="password" name="password" id="password" placeholder="Enter password" value={data.password} onChange={handleChange} /> <br />
+
+//                 <input type="email" name="email" id="email" placeholder="Enter email" value={data.email} onChange={handleChange} /> <br />
+
+//                 <input type="date" name="dob" id="dob" placeholder="Enter dob" value={data.dob} onChange={handleChange} /> <br />
+
+//                 <label htmlFor="percentage">Select Percentage : </label>
+//                 <input type="range" name="percentage" id="percentage" value={data.percentage} onChange={handleChange} min={1} max={100} /> <span>{data.percentage}</span> <br />
+
+//                 <label htmlFor="gender">Select Gender : </label>
+//                 <div className="gender" id="gender" value={data.gender} onChange={handleChange}>
+//                     <input type="radio" name="gender" id="male" value={"male"} /><span>Male</span>
+//                     <input type="radio" name="gender" id="female" value={"female"} /><span>Female</span>
+//                     <input type="radio" name="gender" id="others" value={"others"} /><span>Others</span>
+//                 </div><br />
+
+//                 <label htmlFor="skills">Select skills : </label>
+//                 <div className="skills" id="skills" onChange={handleSkillsChange}>
+//                     <input type="checkbox" name="skills" id="java" value={"java"} /><span>Java</span>
+//                     <input type="checkbox" name="skills" id="python" value={"python"} /><span>Python</span>
+//                     <input type="checkbox" name="skills" id="sql" value={"sql"} /><span>SQL</span>
+//                     <input type="checkbox" name="skills" id="javascript" value={"javascript"} /><span>Javascript</span>
+//                 </div>
+//                 <br />
+
+//                 <label htmlFor="country">Select country : </label>
+//                 <select name="country" id="country" value={data.country} onChange={handleChange}>
+//                     {
+//                         countries?.map((v, i) => {
+//                             return (
+//                                 <option key={i + 1} value={v.name}>{v.name}</option>
+//                             )
+//                         })
+//                     }
+//                 </select>
+//                 <br />
+
+//                 <textarea name="comment" id="comment" cols="30" rows="8" placeholder="Enter comment" value={data.comment} onChange={handleChange}></textarea>
+//                 <br />
+
+//                 {/* <button type="submit" onClick={handleSubmit}>Submit</button> */}
+//                 <button type="submit">Submit</button>
+//             </form>
+//         </div>
+//     )
+// }
+
+// export default App;
+
+//! 24-06-2025
+//? Lifecycle Methods in Class Based Component:
+//? Mounting Phase
+
+// import React, { Component } from "react";
+// import Child from "./Components/Child";
+
+// class App extends Component {
+//     constructor() {
+//         super();
+//         this.state = {
+//             count: 0
+//         }
+//         console.log("constructor Parent");
+//     }
+
+//     static getDerivedStateFromProps() {
+//         console.log("getDerivedStateFromProps() Parent");
+//         return null;
+//     }
+
+//     componentDidMount() {
+//         console.log("componentDidMount() Parent");
+//         let h1 = document.querySelector(".heading");
+//         h1.style.color = "orange";
+//     }
+
+//     render() {
+//         console.log("render() Parent");
+//         return (
+//             <>
+//                 <h1 className="heading">Hello World Parent</h1>
+//                 <Child count={this.state.count} />
+//             </>
+//         )
+//     }
+
+// }
+
+// export default App;
+
+//? Fetching products data using axios library
+import React, { Component } from 'react';
+import axios from 'axios';
+import "./App.css";
+
+class App extends Component {
+
+    constructor() {
+        super();
+        this.state = {
+            products: null
         }
-        console.log(data.skills);
     }
 
-    let handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(data);
+    componentDidMount() {
+        axios.get("https://fakestoreapi.com/products")
+            .then(
+                (data) => {
+                    console.log(data.data);
+                    this.setState({ products: data.data });
+                },
+                (error) => {
+                    console.log(error)
+                }
+            )
     }
 
-    return (
-        <div className="container">
-            <form onSubmit={handleSubmit}>
+    render() {
+        console.log(this.state.products);
+        return (
+            <div className="container">
+                <section>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>IMAGE</th>
+                                <th>TITLE</th>
+                                <th>DESCRIPTION</th>
+                                <th>PRICE</th>
+                            </tr>
+                        </thead>
 
-                <input type="text" name="username" id="username" placeholder="Enter username" value={data.username} onChange={handleChange} /> <br />
-
-                <input type="password" name="password" id="password" placeholder="Enter password" value={data.password} onChange={handleChange} /> <br />
-
-                <input type="email" name="email" id="email" placeholder="Enter email" value={data.email} onChange={handleChange} /> <br />
-
-                <input type="date" name="dob" id="dob" placeholder="Enter dob" value={data.dob} onChange={handleChange} /> <br />
-
-                <label htmlFor="percentage">Select Percentage : </label>
-                <input type="range" name="percentage" id="percentage" value={data.percentage} onChange={handleChange} min={1} max={100} /> <span>{data.percentage}</span> <br />
-
-                <label htmlFor="gender">Select Gender : </label>
-                <div className="gender" id="gender" value={data.gender} onChange={handleChange}>
-                    <input type="radio" name="gender" id="male" value={"male"} /><span>Male</span>
-                    <input type="radio" name="gender" id="female" value={"female"} /><span>Female</span>
-                    <input type="radio" name="gender" id="others" value={"others"} /><span>Others</span>
-                </div><br />
-
-                <label htmlFor="skills">Select skills : </label>
-                <div className="skills" id="skills" onChange={handleSkillsChange}>
-                    <input type="checkbox" name="skills" id="java" value={"java"} /><span>Java</span>
-                    <input type="checkbox" name="skills" id="python" value={"python"} /><span>Python</span>
-                    <input type="checkbox" name="skills" id="sql" value={"sql"} /><span>SQL</span>
-                    <input type="checkbox" name="skills" id="javascript" value={"javascript"} /><span>Javascript</span>
-                </div>
-                <br />
-
-                <label htmlFor="country">Select country : </label>
-                <select name="country" id="country" value={data.country} onChange={handleChange}>
-                    {
-                        countries?.map((v, i) => {
-                            return (
-                                <option key={i + 1} value={v.name}>{v.name}</option>
-                            )
-                        })
-                    }
-                </select>
-                <br />
-
-                <textarea name="comment" id="comment" cols="30" rows="8" placeholder="Enter comment" value={data.comment} onChange={handleChange}></textarea>
-                <br />
-
-                {/* <button type="submit" onClick={handleSubmit}>Submit</button> */}
-                <button type="submit">Submit</button>
-            </form>
-        </div>
-    )
+                        <tbody>
+                            {
+                                this.state.products?.map((v, i) => {
+                                    let { id, title, description, image, price } = v;
+                                    return (
+                                        <tr key={i + 1}>
+                                            <td>{id}</td>
+                                            <td>
+                                                <img src={image} alt={title} />
+                                            </td>
+                                            <td>{title}</td>
+                                            <td>{description}</td>
+                                            <td>{price}</td>
+                                        </tr>
+                                    )
+                                })
+                            }
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        )
+    }
 }
 
 export default App;

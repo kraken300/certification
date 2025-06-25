@@ -1397,72 +1397,147 @@
 // export default App;
 
 //? Fetching products data using axios library
-import React, { Component } from 'react';
-import axios from 'axios';
-import "./App.css";
+// import React, { Component } from 'react';
+// import axios from 'axios';
+// import "./App.css";
 
-class App extends Component {
+// class App extends Component {
+
+//     constructor() {
+//         super();
+//         this.state = {
+//             products: null
+//         }
+//     }
+
+//     componentDidMount() {
+//         axios.get("https://fakestoreapi.com/products")
+//             .then(
+//                 (data) => {
+//                     console.log(data.data);
+//                     this.setState({ products: data.data });
+//                 },
+//                 (error) => {
+//                     console.log(error)
+//                 }
+//             )
+//     }
+
+//     render() {
+//         console.log(this.state.products);
+//         return (
+//             <div className="container">
+//                 <section>
+//                     <table>
+//                         <thead>
+//                             <tr>
+//                                 <th>ID</th>
+//                                 <th>IMAGE</th>
+//                                 <th>TITLE</th>
+//                                 <th>DESCRIPTION</th>
+//                                 <th>PRICE</th>
+//                             </tr>
+//                         </thead>
+
+//                         <tbody>
+//                             {
+//                                 this.state.products?.map((v, i) => {
+//                                     let { id, title, description, image, price } = v;
+//                                     return (
+//                                         <tr key={i + 1}>
+//                                             <td>{id}</td>
+//                                             <td>
+//                                                 <img src={image} alt={title} />
+//                                             </td>
+//                                             <td>{title}</td>
+//                                             <td>{description}</td>
+//                                             <td>{price}</td>
+//                                         </tr>
+//                                     )
+//                                 })
+//                             }
+//                         </tbody>
+//                     </table>
+//                 </section>
+//             </div>
+//         )
+//     }
+// }
+
+// export default App;
+
+//! 25-06-2025
+//? Updating Phase
+// import React, { Component } from 'react';
+
+// export default class App extends Component {
+
+//     constructor() {
+//         super();
+//         console.log("constructor");
+//         this.state = {
+//             count: 0
+//         }
+//     }
+
+//     static getDerivedStateFromProps() {
+//         console.log("getDerivedStateFromProps method");
+//         return null;
+//     }
+
+//     componentDidMount() {
+//         console.log("componentDidMount method");
+//     }
+
+//     //? Updating phase methods:
+//     shouldComponentUpdate() {
+//         console.log("shouldComponentUpdate method");
+//         return true;
+//     }
+
+//     getSnapshotBeforeUpdate(prevProp, prevState) {
+//         console.log("getSnapshotBeforeUpdate method");
+//         return [prevProp, prevState];
+//     }
+
+//     componentDidUpdate(prop, state, snapShot) {
+//         console.log("componentDidUpdate");
+//         console.log(snapShot);
+//     }
+
+//     render() {
+//         console.log("render method");
+//         return (
+//             <div>
+//                 <h1 onMouseOver={(e) => this.setState({ count: this.state.count + 1 })}>
+//                     COUNT : {this.state.count}
+//                 </h1>
+//             </div>
+//         )
+//     }
+// }
+
+//? Unmounting Phase
+import React, { Component } from 'react';
+import Child from './Components/Child';
+
+export default class App extends Component {
 
     constructor() {
         super();
         this.state = {
-            products: null
+            count: 0
         }
     }
 
-    componentDidMount() {
-        axios.get("https://fakestoreapi.com/products")
-            .then(
-                (data) => {
-                    console.log(data.data);
-                    this.setState({ products: data.data });
-                },
-                (error) => {
-                    console.log(error)
-                }
-            )
-    }
-
     render() {
-        console.log(this.state.products);
         return (
-            <div className="container">
-                <section>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>IMAGE</th>
-                                <th>TITLE</th>
-                                <th>DESCRIPTION</th>
-                                <th>PRICE</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            {
-                                this.state.products?.map((v, i) => {
-                                    let { id, title, description, image, price } = v;
-                                    return (
-                                        <tr key={i + 1}>
-                                            <td>{id}</td>
-                                            <td>
-                                                <img src={image} alt={title} />
-                                            </td>
-                                            <td>{title}</td>
-                                            <td>{description}</td>
-                                            <td>{price}</td>
-                                        </tr>
-                                    )
-                                })
-                            }
-                        </tbody>
-                    </table>
-                </section>
-            </div>
+            <>
+                <div>{this.state.count <= 5 ? <Child count={this.state.count} /> : null}</div>
+                <button type="button" onClick={(e) => this.setState({ count: this.state.count + 1 })}>Increment</button>
+            </>
         )
     }
 }
 
-export default App;
 

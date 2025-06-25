@@ -151,32 +151,58 @@
 // export default Child;
 
 //! 24-06-2025
+// import React, { Component } from 'react'
+// export default class Child extends Component {
+//     constructor() {
+//         super();
+//         this.state = {
+//             count: 100
+//         }
+//         console.log("constructor Child");
+//     }
+
+//     static getDerivedStateFromProps(props, state) {
+//         console.log("getDerivedStateFromProps() Child");
+//         console.log(props, state);
+//         // return props;
+//         return { count: props.count };
+//     }
+
+//     componentDidMount() {
+//         console.log("componentDidMount() Child");
+//     }
+
+//     render() {
+//         console.log(this.state);
+//         console.log("render() Child");
+//         return (
+//             <h2>Hello World Child</h2>
+//         )
+//     }
+// }
+
+//! 25-06-2025
+//? Unmounting Phase
 import React, { Component } from 'react'
+
 export default class Child extends Component {
-    constructor() {
-        super();
-        this.state = {
-            count: 100
-        }
-        console.log("constructor Child");
-    }
 
-    static getDerivedStateFromProps(props, state) {
-        console.log("getDerivedStateFromProps() Child");
-        console.log(props, state);
-        // return props;
-        return { count: props.count };
-    }
+  componentWillUnmount() {
+    console.log("Component unmounted");
+  }
 
-    componentDidMount() {
-        console.log("componentDidMount() Child");
-    }
+  componentDidMount() {
+    console.log("Component mounted");
+  }
 
-    render() {
-        console.log(this.state);
-        console.log("render() Child");
-        return (
-            <h2>Hello World Child</h2>
-        )
-    }
+  componentDidUpdate() {
+    console.log("Component updated");
+  }
+
+  render() {
+    console.log("render method");
+    return (
+      <div>Count : {this.props.count}</div>
+    )
+  }
 }

@@ -11,7 +11,7 @@ public class Fetch {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("dev");
 		EntityManager em = emf.createEntityManager();
 
-		Car c1 = em.find(Car.class, 1);
+		Car c1 = em.find(Car.class, 3);
 
 		if (c1 != null) {
 			System.out.println(c1);

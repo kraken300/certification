@@ -1,4 +1,4 @@
-package com.ty.crud;
+package com.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

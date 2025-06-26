@@ -1,9 +1,11 @@
-package com.ty.crud;
+package com.crud;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+
+import com.entity.Employee;
 
 public class Read {
 	public static void main(String[] args) {

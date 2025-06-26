@@ -1,11 +1,16 @@
-package com.ty.crud;
+package com.crud;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 
-public class Update {
+import com.entity.Employee;
+
+import java.util.List;
+
+public class ReadAll {
 	public static void main(String[] args) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("dev");
 		EntityManager em = emf.createEntityManager();
@@ -13,16 +18,16 @@ public class Update {
 
 		et.begin();
 
-		Employee e1 = new Employee(102, "mike", "mike@gmail.com", "1234");
+		String jpql = "SELECT e FROM Employee e";
 
-		if (em.find(Employee.class, e1.geteId()) != null) {
-			em.merge(e1);
-			System.out.println("Employee with id : " + e1.geteId() + " updated!");
-		} else {
-			System.out.println("Employee with id : " + e1.geteId() + " does not exist");
+		TypedQuery<Employee> query = em.createQuery(jpql, Employee.class);
+
+		List<Employee> employees = query.getResultList();
+
+		for (Employee e : employees) {
+			System.out.println(e);
 		}
 
 		et.commit();
-
 	}
 }

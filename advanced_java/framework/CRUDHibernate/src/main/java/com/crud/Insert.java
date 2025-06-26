@@ -1,13 +1,13 @@
-package com.ty.crud;
+package com.crud;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
-import java.util.List;
 
-public class ReadAll {
+import com.entity.Employee;
+
+public class Insert {
 	public static void main(String[] args) {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("dev");
 		EntityManager em = emf.createEntityManager();
@@ -15,15 +15,12 @@ public class ReadAll {
 
 		et.begin();
 
-		String jpql = "SELECT e FROM Employee e";
+//		Employee e1 = new Employee(102, "mike", "mike@gmail.com", "87654321");
+		Employee e1 = new Employee(104, "allen", "allen@gmail.com", "2468");
 
-		TypedQuery<Employee> query = em.createQuery(jpql, Employee.class);
+		System.out.println(e1);
 
-		List<Employee> employees = query.getResultList();
-
-		for (Employee e : employees) {
-			System.out.println(e);
-		}
+		em.persist(e1);
 
 		et.commit();
 	}

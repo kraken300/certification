@@ -1518,26 +1518,120 @@
 // }
 
 //? Unmounting Phase
-import React, { Component } from 'react';
-import Child from './Components/Child';
+// import React, { Component } from 'react';
+// import Child from './Components/Child';
 
-export default class App extends Component {
+// export default class App extends Component {
 
-    constructor() {
-        super();
-        this.state = {
-            count: 0
-        }
-    }
+//     constructor() {
+//         super();
+//         this.state = {
+//             count: 0
+//         }
+//     }
 
-    render() {
-        return (
-            <>
-                <div>{this.state.count <= 5 ? <Child count={this.state.count} /> : null}</div>
-                <button type="button" onClick={(e) => this.setState({ count: this.state.count + 1 })}>Increment</button>
-            </>
-        )
-    }
+//     render() {
+//         return (
+//             <>
+//                 <div>{this.state.count <= 5 ? <Child count={this.state.count} /> : null}</div>
+//                 <button type="button" onClick={(e) => this.setState({ count: this.state.count + 1 })}>Increment</button>
+//             </>
+//         )
+//     }
+// }
+
+//! 26-06-2025
+//? useEffect()
+//? Mounting phase : API Data Fetching
+// import React, { useEffect, useState } from "react";
+// import axios from "axios";
+// import "./App.css";
+
+// const App = () => {
+
+//     let [products, setProducts] = useState(null);
+
+//     React.useEffect(() => {
+//         //    let h1 = document.querySelector(".head");
+//         //    h1.style.background = "green";
+
+//         axios.get("https://dummyjson.com/products")
+//             .then(
+//                 (data) => {
+//                     console.log(data.data.products);
+//                     setProducts(data.data.products);
+//                 },
+//                 (error) => {
+//                     console.log(error);
+//                 }
+//             )
+//     }, []);
+
+//     return (
+//         // <h1>Hello World {console.log("jsx rendered")}</h1>
+//         <div className="container">
+//             <section>
+//                 <table>
+//                     <thead>
+//                         <tr>
+//                             <th>ID</th>
+//                             <th>IMAGE</th>
+//                             <th>TITLE</th>
+//                             <th>DESCRIPTION</th>
+//                             <th>PRICE</th>
+//                         </tr>
+//                     </thead>
+
+//                     <tbody>
+//                         {
+//                             products?.map((v, i) => {
+//                                 let { id, title, description, thumbnail, price } = v;
+//                                 return (
+//                                     <tr key={i + 1}>
+//                                         <td>{id}</td>
+//                                         <td>
+//                                             <img src={thumbnail} alt={title} />
+//                                         </td>
+//                                         <td>{title}</td>
+//                                         <td>{description}</td>
+//                                         <td>{price}</td>
+//                                     </tr>
+//                                 )
+//                             })
+//                         }
+//                     </tbody>
+//                 </table>
+//             </section>
+//         </div>
+//     )
+// }
+
+// export default App;
+
+//? Updating phase : 
+import React, { useEffect, useState } from 'react';
+
+const App = () => {
+    let [count, setCount] = useState(0);
+    let [dark, setDark] = useState(false);
+
+    useEffect(() => {
+        console.log("hello");
+        console.log("bye");
+    }, [count]);
+
+    return (
+        <div>
+            <h1 onMouseOver={(e) => { setCount(p => p + 1) }} style={{
+                background: dark ? "#000" : "#fff",
+                color: dark ? "#fff" : "#000"
+            }}>
+                Count : {count}
+            </h1>
+
+            <button type="button" onClick={(e) => { setDark(p => !p) }}>change color</button>
+        </div>
+    )
 }
 
-
+export default App;

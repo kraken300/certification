@@ -1609,29 +1609,84 @@
 // export default App;
 
 //? Updating phase : 
+// import React, { useEffect, useState } from 'react';
+
+// const App = () => {
+//     let [count, setCount] = useState(0);
+//     let [dark, setDark] = useState(false);
+
+//     useEffect(() => {
+//         console.log("hello");
+//         console.log("bye");
+//     }, [count]);
+
+//     return (
+//         <div>
+//             <h1 onMouseOver={(e) => { setCount(p => p + 1) }} style={{
+//                 background: dark ? "#000" : "#fff",
+//                 color: dark ? "#fff" : "#000"
+//             }}>
+//                 Count : {count}
+//             </h1>
+
+//             <button type="button" onClick={(e) => { setDark(p => !p) }}>change color</button>
+//         </div>
+//     )
+// }
+
+// export default App;
+
+//! 27-06-2025
+//? Unmounting Phase
 import React, { useEffect, useState } from 'react';
+import Child from './Components/Child';
 
 const App = () => {
     let [count, setCount] = useState(0);
-    let [dark, setDark] = useState(false);
 
     useEffect(() => {
-        console.log("hello");
-        console.log("bye");
-    }, [count]);
-
+        console.log("parent mounted");
+    }, []);
     return (
         <div>
-            <h1 onMouseOver={(e) => { setCount(p => p + 1) }} style={{
-                background: dark ? "#000" : "#fff",
-                color: dark ? "#fff" : "#000"
-            }}>
-                Count : {count}
-            </h1>
-
-            <button type="button" onClick={(e) => { setDark(p => !p) }}>change color</button>
+            {console.log("parent render()")}
+            {count <= 5 ? <Child count={count} /> : null}
+            <button type="button" onClick={(e) => { setCount(p => p + 1) }}>Increment</button>
         </div>
     )
 }
 
 export default App;
+
+//? useReducer()
+// import React, { useReducer } from 'react';
+
+// let initialValue = 0;
+
+// let reducer = (state, { type }) => {
+//     switch (type) {
+//         case "Increment":
+//             return state + 1;
+//         case "Decrement":
+//             return state - 1;
+//         case "Reset":
+//             return initialValue;
+//         default:
+//             return state;
+//     }
+// }
+
+// const App = () => {
+//     let [count, dispatch] = useReducer(reducer, initialValue);
+//     return (
+//         <div>
+//             <h1>Count : {count}</h1>
+
+//             <button type="button" onClick={(e) => dispatch({ type: "Increment" })}>Increment</button>
+//             <button type="button" onClick={(e) => dispatch({ type: "Decrement" })}>Decremenet</button>
+//             <button type="button" onClick={(e) => dispatch({ type: "Reset" })}>Reset</button>
+//         </div>
+//     )
+// }
+
+// export default App;

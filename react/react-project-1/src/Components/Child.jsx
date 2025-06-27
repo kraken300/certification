@@ -182,27 +182,55 @@
 // }
 
 //! 25-06-2025
-//? Unmounting Phase
-import React, { Component } from 'react'
+//? Unmounting Phase (CBC)
+// import React, { Component } from 'react'
 
-export default class Child extends Component {
+// export default class Child extends Component {
 
-  componentWillUnmount() {
-    console.log("Component unmounted");
-  }
+//   componentWillUnmount() {
+//     console.log("Component unmounted");
+//   }
 
-  componentDidMount() {
-    console.log("Component mounted");
-  }
+//   componentDidMount() {
+//     console.log("Component mounted");
+//   }
 
-  componentDidUpdate() {
-    console.log("Component updated");
-  }
+//   componentDidUpdate() {
+//     console.log("Component updated");
+//   }
 
-  render() {
-    console.log("render method");
-    return (
-      <div>Count : {this.props.count}</div>
-    )
-  }
+//   render() {
+//     console.log("render method");
+//     return (
+//       <div>Count : {this.props.count}</div>
+//     )
+//   }
+// }
+
+//! 27-06-2025
+//? Unmounting Phase (FBC)
+import React, { useEffect } from 'react';
+
+const Child = ({ count }) => {
+
+  useEffect(() => {
+    console.log("child mounted");
+  }, []);
+
+  useEffect(() => {
+    console.log("child component");
+
+    return () => {
+      console.log("child unmounted");
+    }
+  }, [count]);
+
+  return (
+    <div>
+      {console.log("child render()")}
+      <h1>Count : {count}</h1>
+    </div>
+  )
 }
+
+export default Child;

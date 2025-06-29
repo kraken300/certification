@@ -13,21 +13,25 @@ import com.entity.User;
 public class UserCrud {
 
 	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("dev");
-	
+
 	public static void insertUser(User user) {
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction et = em.getTransaction();
 
+		// Use cascade to auto persist
 //		List<Address> addresses = user.getAddresses();
 //		et.begin();
 //
 //		for (Address address : addresses) {
 //			em.persist(address);
 //		}
+		et.begin();
 
 		em.persist(user);
 
 		et.commit();
+
+		em.close();
 	}
 
 	public static void fetchUser(int uid) {
@@ -40,13 +44,15 @@ public class UserCrud {
 			System.out.println(user);
 
 			System.out.println("========Address Details=========");
-			System.out.println(user.getAddresses());
+			for (Address address : user.getAddresses()) {
+				System.out.println(address);
+			}
 		} else {
 			System.out.println("User not found!");
 		}
 	}
 
-	public static void updateUser(int uid,String name) {
+	public static void updateUser(int uid, String name) {
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction et = em.getTransaction();
 
@@ -63,7 +69,6 @@ public class UserCrud {
 			System.out.println("User not found!");
 		}
 
-		
 	}
 
 	public static void deleteUser(int uid) {
@@ -76,6 +81,7 @@ public class UserCrud {
 
 		if (user != null) {
 
+			// Use cascade to auto remove
 //			List<Address> addresses = user.getAddresses();
 //
 //			for (Address address : addresses) {
@@ -89,7 +95,6 @@ public class UserCrud {
 			System.out.println("User not found!");
 		}
 
-		
 	}
 
 	public static void main(String[] args) {
@@ -108,13 +113,13 @@ public class UserCrud {
 
 		user1.setAddresses(Arrays.asList(add1, add2));
 
-		insertUser(user1);
+//		insertUser(user1);
 
 		// ************* TO FETCH USER *************//
-//		fetchUser(1);
+		fetchUser(1);
 
 		// ************* TO UPDATE USER *************//
-//		updateUser(1);
+//		updateUser(1, "James");
 
 		// ************* TO DELETE USER *************//
 //		deleteUser(1);

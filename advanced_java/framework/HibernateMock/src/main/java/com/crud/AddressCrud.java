@@ -1,7 +1,5 @@
 package com.crud;
 
-import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -11,8 +9,10 @@ import com.entity.Address;
 import com.entity.User;
 
 public class AddressCrud {
+
+	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("dev");
+
 	public static void insertAddress(Address newAddress, int uid) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("dev");
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction et = em.getTransaction();
 
@@ -26,21 +26,18 @@ public class AddressCrud {
 //			addresses.add(newAddress);
 //			user.setAddresses(addresses);
 
-			em.merge(user);
+//			em.merge(user);
 			em.persist(newAddress);
-
+			et.commit();
+			em.close();
 			System.out.println("Address inserted successfully!");
 		} else {
 			System.out.println("User not found!");
 		}
 
-		em.persist(user);
-
-		et.commit();
 	}
 
 	public static void fetchAddress(int aid) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("dev");
 		EntityManager em = emf.createEntityManager();
 
 		Address address = em.find(Address.class, aid);
@@ -56,8 +53,7 @@ public class AddressCrud {
 		}
 	}
 
-	public static void updateAddress(int aid) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("dev");
+	public static void updateAddress(int aid, String city) {
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction et = em.getTransaction();
 
@@ -66,18 +62,18 @@ public class AddressCrud {
 		et.begin();
 
 		if (address != null) {
-			address.setCity("Nagpur");
+			address.setCity(city);
 			em.merge(address);
+			et.commit();
+			em.close();
 			System.out.println("Address updated successfully!");
 		} else {
 			System.out.println("Address not found!");
 		}
 
-		et.commit();
 	}
 
 	public static void deleteAddress(int aid) {
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("dev");
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction et = em.getTransaction();
 
@@ -87,29 +83,30 @@ public class AddressCrud {
 
 		if (address != null) {
 			em.remove(address);
+			et.commit();
+			em.close();
 			System.out.println("Address deleted successfully!");
 		} else {
 			System.out.println("Address not found!");
 		}
 
-		et.commit();
 	}
 
 	public static void main(String[] args) {
 
-		// ************* TO INSERT USER *************//
+		// ************* TO INSERT ADDRESS *************//
 
 		Address add1 = new Address(103, "India", "Maharashtra", "Pune", 422032L);
 
-		insertAddress(add1, 1);
+//		insertAddress(add1, 1);
 
-		// ************* TO FETCH USER *************//
-//		fetchAddress(101);
+		// ************* TO FETCH ADDRESS *************//
+//		fetchAddress(103);
 
-		// ************* TO UPDATE USER *************//
-//		updateAddress(101);
+		// ************* TO UPDATE ADDRESS *************//
+//		updateAddress(103, "Nagpur");
 
-		// ************* TO DELETE USER *************//
-//		deleteAddress(102);
+		// ************* TO DELETE ADDRESS *************//
+//		deleteAddress(103);
 	}
 }

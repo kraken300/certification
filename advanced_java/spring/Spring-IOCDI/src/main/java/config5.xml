@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- Configuring Student class as Bean -->
+	<bean id="myShop" class="com.di.map.Shop">
+		<property name="shopName" value="All In One Marts"></property>
+		<property name="shopOwner" value="John"></property>
+		<property name="products">
+			<map>
+				<entry key="Chips" value="10.0"></entry>
+				<entry key="Cold Drinks" value="20.0"></entry>
+				<entry key="Cookies" value="30.0"></entry>
+				<entry key="Milkshake" value="40.0"></entry>
+			</map>
+		</property>
+	</bean>
+
+</beans>

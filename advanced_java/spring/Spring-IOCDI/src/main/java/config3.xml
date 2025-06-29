@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- Configuring Car class as Bean -->
+	<bean id="myCar" class="com.di.object.Car">
+		<property name="brand" value="Tata"></property>
+		<property name="engine" ref="myEngine"></property>
+	</bean>
+
+	<!-- Configuring Engine class as Bean -->
+	<bean id="myEngine" class="com.di.object.Engine">
+		<property name="type" value="Petrol"></property>
+		<property name="cc" value="420"></property>
+	</bean>
+
+</beans>

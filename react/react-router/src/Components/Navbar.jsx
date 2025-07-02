@@ -26,6 +26,10 @@ const Navbar = () => {
                 <li>
                     <NavLink to={"/about-us"} style={handleStyle}>About Us</NavLink>
                 </li>
+
+                 <li>
+                    <NavLink to={"/users"} style={handleStyle}>Users</NavLink>
+                </li>
             </ul>
         </nav>
     )

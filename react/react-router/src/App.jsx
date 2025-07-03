@@ -12,12 +12,14 @@ import NewProducts from './Components/Product/NewProducts';
 import Users from './Components/Users/Users';
 import UserData from './Components/Users/UserData';
 import Admin from './Components/Users/Admin';
+import DemoRoute from './Components/routes/DemoRoute';
 
 const App = () => {
   return (
     <>
       <Navbar />
-      <Routes>
+      <DemoRoute />
+      {/* <Routes>
         <Route path="/" element={<Home />} />
         
         <Route path="/products" element={<Products />} >
@@ -35,7 +37,7 @@ const App = () => {
         </Route>
 
         <Route path="*" element={<PageNotFound />} />
-      </Routes>
+      </Routes> */}
     </>
   )
 }

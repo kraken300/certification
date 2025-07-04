@@ -1,18 +1,24 @@
-import React, { useState } from 'react';
-import Products from './Components/Products';
+import React, { createContext, useState } from 'react';
+import Login from './pages/Login';
+import Profile from './pages/Profile';
+
+export let UserContext = createContext();
 
 const App = () => {
 
-  let [data, setData] = useState({
-    name: "Samsung",
-    price: 20000,
-    color: "Black"
-  });
+  let [value, setValue] = useState(null);
+
+  // let [data, setData] = useState({
+  //   name: "Samsung",
+  //   price: 20000,
+  //   color: "Black"
+  // });
 
   return (
-    <>
-      <Products data={data} />
-    </>
+    <UserContext.Provider value={{ value, setValue }}>
+      <Login />
+      <Profile />
+    </UserContext.Provider>
   )
 }
 

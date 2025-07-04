@@ -1638,25 +1638,25 @@
 
 //! 27-06-2025
 //? Unmounting Phase
-import React, { useEffect, useState } from 'react';
-import Child from './Components/Child';
+// import React, { useEffect, useState } from 'react';
+// import Child from './Components/Child';
 
-const App = () => {
-    let [count, setCount] = useState(0);
+// const App = () => {
+//     let [count, setCount] = useState(0);
 
-    useEffect(() => {
-        console.log("parent mounted");
-    }, []);
-    return (
-        <div>
-            {console.log("parent render()")}
-            {count <= 5 ? <Child count={count} /> : null}
-            <button type="button" onClick={(e) => { setCount(p => p + 1) }}>Increment</button>
-        </div>
-    )
-}
+//     useEffect(() => {
+//         console.log("parent mounted");
+//     }, []);
+//     return (
+//         <div>
+//             {console.log("parent render()")}
+//             {count <= 5 ? <Child count={count} /> : null}
+//             <button type="button" onClick={(e) => { setCount(p => p + 1) }}>Increment</button>
+//         </div>
+//     )
+// }
 
-export default App;
+// export default App;
 
 //? useReducer()
 // import React, { useReducer } from 'react';
@@ -1690,3 +1690,39 @@ export default App;
 // }
 
 // export default App;
+
+//! 04-07-2025
+//? useMemo() hook:
+import React, { useMemo, useState } from 'react';
+
+function slowFunction(num) {
+    for (let i = 0; i <= 1000000000; i++) { }
+    return num * 2;
+}
+
+const App = () => {
+
+    const [count, setCount] = useState(0);
+    const [dark, setDark] = useState(false);
+
+    let doubleNumber = useMemo(() => {
+        return slowFunction(count);
+    }, [count]);
+
+    return (
+        <div>
+            <input type="number" name="number" id="number" placeholder='Enter number' value={count} onChange={(e) => setCount(e.target.value)} />
+
+            <button type="button" onClick={(e) => setDark(p => !p)}>Change background</button>
+
+            <h1
+                style={{
+                    background: dark ? "#000" : "#fff",
+                    color: dark ? "#fff" : "#000"
+                }}>{doubleNumber}</h1>
+        </div>
+
+    )
+}
+
+export default App;

@@ -7,7 +7,7 @@
                            http://www.springframework.org/schema/context
                            http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<!-- Configuring Student class as Bean -->
+	<!-- Configuring Shop class as Bean -->
 	<bean id="myShop" class="com.di.map.Shop">
 		<constructor-arg value="All In One Marts"></constructor-arg>
 		<constructor-arg value="John"></constructor-arg>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <section>
+        <article>
+            <button class="add-data">Add User</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>NAME</th>
+                        <th>EMAIL</th>
+                        <th>PHONE</th>
+                        <th>OPERATIONS</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                </tbody>
+            </table>
+        </article>
+    </section>
+
+    <div class="pop-up-add">
+        <i class="fa-solid fa-xmark"></i>
+        <article>
+            <form class="add-form">
+                <input type="number" id="id" class="id" name="id" placeholder="Enter id">
+                <input type="text" id="name" class="name" name="name" placeholder="Enter username">
+                <input type="email" id="email" class="email" name="email" placeholder="Enter email">
+                <input type="number" id="phone" class="phone" name="phone" placeholder="Enter phone">
+
+                <button type="submit">Add Data</button>
+            </form>
+        </article>
+    </div>
+
+    <script src="./App.js"></script>
+</body>
+
+</html>

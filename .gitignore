@@ -3,3 +3,4 @@
 /communication
 *.mp4
 /apt
+node_modules

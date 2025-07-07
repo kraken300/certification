@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+section {
+    width: 100%;
+}
+
+article {
+    width: 80%;
+    margin: 40px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+}
+
+th {
+    background: rgb(112, 200, 229);
+}
+
+table,
+th,
+tr,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 6px 12px;
+}
+
+button {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background: rgb(37, 92, 223);
+    color: white;
+    cursor: pointer;
+}
+
+.read{
+    background: rgb(37, 92, 223);
+}
+
+.update{
+    background: #000;
+}
+
+.delete{
+    background: red;
+}
+
+.add-data {
+    background: green;
+    color: white;
+}
+
+.pop-up-add {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.pop-up-add>article {
+    width: 40%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: lightblue;
+    padding: 20px 40px;
+    border-radius: 8px;
+}
+
+.pop-up-add>article>form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.pop-up-add>article>form>input {
+    font-size: 20px;
+    padding: 4px 8px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+}
+
+.fa-xmark {
+    color: white;
+    position: absolute;
+    top: 40px;
+    right: 60px;
+    z-index: 1;
+    font-size: 50px;
+    cursor: pointer;
+}

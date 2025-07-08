@@ -1693,36 +1693,65 @@
 
 //! 04-07-2025
 //? useMemo() hook:
-import React, { useMemo, useState } from 'react';
+// import React, { useMemo, useState } from 'react';
 
-function slowFunction(num) {
-    for (let i = 0; i <= 1000000000; i++) { }
-    return num * 2;
-}
+// function slowFunction(num) {
+//     for (let i = 0; i <= 1000000000; i++) { }
+//     return num * 2;
+// }
+
+// const App = () => {
+
+//     const [count, setCount] = useState(0);
+//     const [dark, setDark] = useState(false);
+
+//     let doubleNumber = useMemo(() => {
+//         return slowFunction(count);
+//     }, [count]);
+
+//     return (
+//         <div>
+//             <input type="number" name="number" id="number" placeholder='Enter number' value={count} onChange={(e) => setCount(e.target.value)} />
+
+//             <button type="button" onClick={(e) => setDark(p => !p)}>Change background</button>
+
+//             <h1
+//                 style={{
+//                     background: dark ? "#000" : "#fff",
+//                     color: dark ? "#fff" : "#000"
+//                 }}>{doubleNumber}</h1>
+//         </div>
+
+//     )
+// }
+
+// export default App;
+
+//! 08-07-2025
+//? custom hook
+import React from 'react';
+import useFetchData from './hooks/useFetchData';
 
 const App = () => {
 
-    const [count, setCount] = useState(0);
-    const [dark, setDark] = useState(false);
-
-    let doubleNumber = useMemo(() => {
-        return slowFunction(count);
-    }, [count]);
+    let data = useFetchData("https://jsonplaceholder.typicode.com/users");
+    console.log(data);
 
     return (
-        <div>
-            <input type="number" name="number" id="number" placeholder='Enter number' value={count} onChange={(e) => setCount(e.target.value)} />
-
-            <button type="button" onClick={(e) => setDark(p => !p)}>Change background</button>
-
-            <h1
-                style={{
-                    background: dark ? "#000" : "#fff",
-                    color: dark ? "#fff" : "#000"
-                }}>{doubleNumber}</h1>
+        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexWrap: "wrap", gap: "40px" }}>
+            {
+                data?.map((v) => {
+                    return (
+                        <div key={v.id} style={{ border: "1px solid black", textAlign: "center", padding: "10px 20px", height: "140px", width: "260px" }}>
+                            <h2>ID : {v.id}</h2>
+                            <h3>Name : {v.name}</h3>
+                            <p>Email : {v.email}</p>
+                        </div>
+                    )
+                })
+            }
         </div>
-
     )
 }
 
-export default App;
+export default App

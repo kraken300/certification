@@ -1729,29 +1729,47 @@
 
 //! 08-07-2025
 //? custom hook
+// import React from 'react';
+// import useFetchData from './hooks/useFetchData';
+
+// const App = () => {
+
+//     let data = useFetchData("https://jsonplaceholder.typicode.com/users");
+//     console.log(data);
+
+//     return (
+//         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexWrap: "wrap", gap: "40px" }}>
+//             {
+//                 data?.map((v) => {
+//                     return (
+//                         <div key={v.id} style={{ border: "1px solid black", textAlign: "center", padding: "10px 20px", height: "140px", width: "260px" }}>
+//                             <h2>ID : {v.id}</h2>
+//                             <h3>Name : {v.name}</h3>
+//                             <p>Email : {v.email}</p>
+//                         </div>
+//                     )
+//                 })
+//             }
+//         </div>
+//     )
+// }
+
+// export default App;
+
+//! 10-07-2025
+//? custom hook
+
 import React from 'react';
-import useFetchData from './hooks/useFetchData';
+import ClickCounter from './Components/ClickCounter';
+import HoverCounter from './Components/HoverCounter';
 
 const App = () => {
-
-    let data = useFetchData("https://jsonplaceholder.typicode.com/users");
-    console.log(data);
-
     return (
-        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexWrap: "wrap", gap: "40px" }}>
-            {
-                data?.map((v) => {
-                    return (
-                        <div key={v.id} style={{ border: "1px solid black", textAlign: "center", padding: "10px 20px", height: "140px", width: "260px" }}>
-                            <h2>ID : {v.id}</h2>
-                            <h3>Name : {v.name}</h3>
-                            <p>Email : {v.email}</p>
-                        </div>
-                    )
-                })
-            }
-        </div>
+        <>
+            <ClickCounter name="abc" />
+            <HoverCounter name="xyz" />
+        </>
     )
 }
 
-export default App
+export default App;

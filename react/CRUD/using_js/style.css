@@ -45,15 +45,15 @@ button {
     cursor: pointer;
 }
 
-.read{
+.read {
     background: rgb(37, 92, 223);
 }
 
-.update{
+.update {
     background: #000;
 }
 
-.delete{
+.delete {
     background: red;
 }
 
@@ -62,7 +62,7 @@ button {
     color: white;
 }
 
-.pop-up-add {
+.k1 {
     width: 100%;
     height: 100vh;
     position: fixed;
@@ -74,7 +74,7 @@ button {
     align-items: center;
 }
 
-.pop-up-add>article {
+.k1>article {
     width: 40%;
     height: 60%;
     display: flex;
@@ -85,7 +85,7 @@ button {
     border-radius: 8px;
 }
 
-.pop-up-add>article>form {
+.k1>article>form {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -93,7 +93,7 @@ button {
     gap: 20px;
 }
 
-.pop-up-add>article>form>input {
+.k1>article>form>input {
     font-size: 20px;
     padding: 4px 8px;
     border-radius: 10px;

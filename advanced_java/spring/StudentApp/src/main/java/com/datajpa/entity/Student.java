@@ -1,4 +1,4 @@
-package com.datajpa;
+package com.datajpa.entity;
 
 import java.time.LocalDateTime;
 
@@ -18,6 +18,7 @@ public class Student {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
 	private String name;
 
 	@Column(updatable = false)
@@ -39,7 +40,7 @@ public class Student {
 		this.phone = phone;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 

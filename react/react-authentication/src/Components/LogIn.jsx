@@ -40,7 +40,7 @@ const LogIn = () => {
             setIsLoggedIn(true);
             setUserData(data.username);
 
-            navigate("/welcome");
+            navigate("/");
             setData({ username: "", password: "" });
         } else {
             toast.error("Something went wrong");

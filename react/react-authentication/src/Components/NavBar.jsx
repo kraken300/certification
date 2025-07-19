@@ -1,50 +1,52 @@
-import React, { useContext } from 'react'
-import { NavLink } from 'react-router-dom'
-import { UserContext } from '../App'
+// Navbar.jsx
+import React, { useContext, useRef } from 'react';
+import { NavLink } from 'react-router-dom';
+import { UserContext } from '../App';
+import { FaShoppingCart } from 'react-icons/fa';
 
 const NavBar = () => {
+    const { isLoggedIn, setIsLoggedIn, userData, setUserData, cartProducts } = useContext(UserContext);
 
-    let { isLoggedIn, setIsLoggedIn, userData, setUserData } = useContext(UserContext);
-
-    let handleLogout = (e) => {
+    const handleLogout = () => {
         setIsLoggedIn(false);
         setUserData("");
-    }
+    };
 
     return (
-        <nav>
-            {
-                isLoggedIn ? (
-                    <ul>
-                        <li>
-                            <NavLink to={"/"}>Home</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to={"/products"}>Products</NavLink>
-                        </li>
+        <nav className="navbar">
+            <ul>
+                <li>
+                    <NavLink to={"/"}>Home</NavLink>
+                </li>
+                <li>
+                    <NavLink to={"/products"}>Products</NavLink>
+                </li>
+                {isLoggedIn ? (
+                    <>
                         <li style={{ color: "violet", fontSize: "20px" }}>
                             {userData}
                         </li>
                         <li>
-                            <NavLink to={"/"} onClick={handleLogout}>Logout</NavLink>
+                            <button onClick={handleLogout}>Logout</button>
                         </li>
-                    </ul>
+                        <li>
+                            <FaShoppingCart
+                                onClick={() => window.toggleCart()}
+                                style={{ fontSize: "22px", cursor: "pointer", color:"white" }}
+                            />
+                            <sup>{cartProducts.length}</sup>
+                        </li>
+                    </>
                 ) : (
-                    <ul>
-                        <li>
-                            <NavLink to={"/"}>Home</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to={"/products"}>Products</NavLink>
-                        </li>
+                    <>
                         <li>
                             <NavLink to={"/log-in"}>Login</NavLink>
                         </li>
-                    </ul>
-                )
-            }
+                    </>
+                )}
+            </ul>
         </nav>
-    )
-}
+    );
+};
 
-export default NavBar
+export default NavBar;

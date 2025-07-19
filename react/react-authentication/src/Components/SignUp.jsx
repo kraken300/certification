@@ -20,7 +20,7 @@ const SignUp = () => {
             .then(
                 () => {
                     toast.success("Signed up successfully!");
-                    navigate("/welcome");
+                    navigate("/");
                 },
                 (error) => {
                     console.log(error);

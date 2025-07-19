@@ -5,32 +5,29 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.BeanUtils;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
-import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.sb.dao.StudentDAO;
 import com.sb.dto.StudentDTO;
 import com.sb.dto.StudentResponseDTO;
 import com.sb.entity.Student;
-import com.sb.repository.StudentRepository;
 
 @Service
 public class StudentServiceImpl implements StudentService {
 
-	private StudentRepository studentRepository;
 
-	public StudentServiceImpl(StudentRepository studentRepository) {
-		this.studentRepository = studentRepository;
+	private StudentDAO studentDAO;
+
+	public StudentServiceImpl(StudentDAO studentDAO) {
+		this.studentDAO = studentDAO;
 	}
 
 	@Override
 	public ResponseEntity<String> saveStudent(StudentDTO studentDTO) {
 
-		Optional<Student> opt = studentRepository.findByEmail(studentDTO.getEmail());
+		Optional<Student> opt = studentDAO.findByEmail(studentDTO.getEmail());
 
 		ResponseEntity<String> rs = null;
 
@@ -42,7 +39,7 @@ public class StudentServiceImpl implements StudentService {
 
 			BeanUtils.copyProperties(studentDTO, student);
 
-			studentRepository.save(student);
+			studentDAO.save(student);
 			rs = new ResponseEntity<String>("Student regsitered successfully!", HttpStatus.CREATED);
 		}
 		return rs;
@@ -50,27 +47,16 @@ public class StudentServiceImpl implements StudentService {
 
 	@Override
 	public ResponseEntity<?> getById(Long id) {
-		Optional<Student> opt = studentRepository.findById(id);
-
-		if (opt.isPresent()) {
-			Student student = opt.get();
-
-			StudentResponseDTO response = new StudentResponseDTO();
-
-			BeanUtils.copyProperties(student, response);
-
-			return new ResponseEntity<StudentResponseDTO>(response, HttpStatus.OK);
-		}
-
-		return new ResponseEntity<String>("Student not found!", HttpStatus.NOT_FOUND);
+		Student student = studentDAO.findById(id);
+		StudentResponseDTO response = new StudentResponseDTO();
+		BeanUtils.copyProperties(student, response);
+		return new ResponseEntity<StudentResponseDTO>(response, HttpStatus.OK);
 	}
 
 	@Override
 	public List<StudentResponseDTO> findAll(Integer pageNumber) {
 
-		Pageable pageable = PageRequest.of(pageNumber - 1, 10);
-
-		List<Student> all = studentRepository.findAll(pageable).toList();
+		List<Student> all = studentDAO.findAll(pageNumber);
 
 		List<StudentResponseDTO> students = new ArrayList<>();
 
@@ -87,27 +73,17 @@ public class StudentServiceImpl implements StudentService {
 
 	@Override
 	public String updateName(Long id, String name) {
-		Optional<Student> opt = studentRepository.findById(id);
-
-		if (opt.isPresent()) {
-			Student student = opt.get();
-
-			student.setName(name);
-			studentRepository.save(student);
-			return "Student name updated to : " + name;
-		}
-		return "Student not found!";
+		Student student = studentDAO.findById(id);
+		student.setName(name);
+		studentDAO.save(student);
+		return "Student name updated to : " + name;
 	}
 
 	@Override
 	public String deleteStudent(Long id) {
-		Optional<Student> opt = studentRepository.findById(id);
-
-		if (opt.isPresent()) {
-			studentRepository.delete(opt.get());
-			return "Student deleted!";
-		}
-		return "Student not found!";
+		Student student = studentDAO.findById(id);
+		studentDAO.delete(student);
+		return "Student deleted!";
 	}
 
 }

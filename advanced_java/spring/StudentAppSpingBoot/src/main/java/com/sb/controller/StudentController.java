@@ -2,8 +2,10 @@ package com.sb.controller;
 
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,7 +34,19 @@ public class StudentController {
 
 	@GetMapping("/get")
 	public ResponseEntity<?> getStudent(@RequestParam(name = "sid") Long id) {
+
+//		String a = null;
+//		a.charAt(0);
+
+//		throw new StudentNotFoundException("Student does not exist");
+
 		return studentService.getById(id);
+	}
+
+	@ExceptionHandler(Exception.class)
+	public ResponseEntity<String> handleArithmeticException(Exception exception) {
+		System.out.println("Local Exception Handler");
+		return new ResponseEntity<String>(exception.getMessage(), HttpStatus.BAD_REQUEST);
 	}
 
 	@GetMapping("/getAll")
@@ -59,5 +73,12 @@ public class StudentController {
 	public String getSecretKey(@RequestHeader String secretKey) {
 		System.out.println(secretKey);
 		return "Read the data from the headers";
+	}
+
+	@GetMapping(value = "/content", produces = { "application/json", "application/xml" }, consumes = {
+			"application/json", "application/xml" })
+	public StudentDTO getContent(@RequestBody StudentDTO studentDTO) {
+		System.out.println(studentDTO);
+		return studentDTO;
 	}
 }

@@ -1,0 +1,102 @@
+[
+    {
+        "question": "What does 'JS' stand for?",
+        "answers": [
+            "JavaStyle",
+            "JavaScript",
+            "JScript",
+            "JSerial"
+        ],
+        "correct": "JavaScript"
+    },
+    {
+        "question": "Which method is used to add an element at the end of an array in JavaScript?",
+        "answers": [
+            "push()",
+            "pop()",
+            "shift()",
+            "unshift()"
+        ],
+        "correct": "push()"
+    },
+    {
+        "question": "Which of the following is a primitive data type in JavaScript?",
+        "answers": [
+            "Object",
+            "Array",
+            "Function",
+            "String"
+        ],
+        "correct": "String"
+    },
+    {
+        "question": "What will be the output of the following code: console.log(2 + '2')?",
+        "answers": [
+            "4",
+            "22",
+            "NaN",
+            "undefined"
+        ],
+        "correct": "22"
+    },
+    {
+        "question": "Which keyword is used to declare a constant in JavaScript?",
+        "answers": [
+            "let",
+            "var",
+            "const",
+            "final"
+        ],
+        "correct": "const"
+    },
+    {
+        "question": "Which event is triggered when a user clicks on an HTML element?",
+        "answers": [
+            "onhover",
+            "onclick",
+            "onchange",
+            "onfocus"
+        ],
+        "correct": "onclick"
+    },
+    {
+        "question": "What does the 'this' keyword refer to in JavaScript?",
+        "answers": [
+            "The global object",
+            "The function itself",
+            "The current object",
+            "The parent scope"
+        ],
+        "correct": "The current object"
+    },
+    {
+        "question": "Which method can be used to convert a string into an integer in JavaScript?",
+        "answers": [
+            "parseInt()",
+            "toInteger()",
+            "Number()",
+            "convert()"
+        ],
+        "correct": "parseInt()"
+    },
+    {
+        "question": "Which of the following is NOT a type of loop in JavaScript?",
+        "answers": [
+            "for",
+            "while",
+            "loop",
+            "do-while"
+        ],
+        "correct": "loop"
+    },
+    {
+        "question": "What does JSON stand for?",
+        "answers": [
+            "JavaScript Object Notation",
+            "Java Simple Object Notation",
+            "JavaScript Online Notation",
+            "Java Source Object Notation"
+        ],
+        "correct": "JavaScript Object Notation"
+    }
+]

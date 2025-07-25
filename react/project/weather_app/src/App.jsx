@@ -1,0 +1,13 @@
+import React from 'react';
+import Weather from './Components/Weather';
+import "./App.css";
+
+const App = () => {
+  return (
+    <>
+      <Weather api_key="" />
+    </>
+  )
+}
+
+export default App;

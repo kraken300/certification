@@ -1,84 +1,122 @@
+<%@page import="com.expensetracker.entity.Expense"%>
+<%@page import="java.util.List"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Expense List</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #eef1f5;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 40px;
-      }
+<head>
 
-      h2 {
-        color: #333;
-        margin-bottom: 30px;
-      }
+<meta charset="UTF-8" />
 
-      table {
-        border-collapse: collapse;
-        width: 80%;
-        max-width: 800px;
-        background-color: white;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      }
+<title>Expense List</title>
 
-      th,
-      td {
-        padding: 12px 20px;
-        text-align: left;
-        border-bottom: 1px solid #ccc;
-      }
+<style>
+body {
+	font-family: Arial, sans-serif;
+	background-color: #eef1f5;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 40px;
+}
 
-      th {
-        background-color: #007bff;
-        color: white;
-      }
+h2 {
+	color: #333;
+	margin-bottom: 30px;
+}
 
-      tr:hover {
-        background-color: #f1f1f1;
-      }
+table {
+	border-collapse: collapse;
+	width: 80%;
+	max-width: 1400px;
+	background-color: white;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-      .no-data {
-        margin-top: 20px;
-        color: #666;
-      }
-    </style>
-  </head>
-  <body>
-    <h2>Expense List</h2>
+.nav-links {
+	display: flex;
+	gap: 20px;
+}
 
-    <table>
-      <thead>
-        <tr>
-          <th>Expense Name</th>
-          <th>Amount</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Sample static data -->
-        <tr>
-          <td>Groceries</td>
-          <td>1500.00</td>
-          <td>Weekly grocery shopping</td>
-        </tr>
-        <tr>
-          <td>Electricity Bill</td>
-          <td>850.75</td>
-          <td>June month electricity payment</td>
-        </tr>
-        <tr>
-          <td>Internet</td>
-          <td>999.00</td>
-          <td>Monthly broadband charges</td>
-        </tr>
-      </tbody>
-    </table>
-  </body>
+.nav-links a {
+	text-decoration: none;
+	color: white;
+	background-color: #007bff;
+	padding: 12px 20px;
+	border-radius: 5px;
+	font-size: 16px;
+	transition: background-color 0.3s ease;
+}
+
+.nav-links a:hover {
+	background-color: #0056b3;
+}
+
+th, td {
+	padding: 12px 20px;
+	text-align: left;
+	border-bottom: 1px solid #ccc;
+}
+
+th {
+	background-color: #007bff;
+	color: white;
+}
+
+tr:hover {
+	background-color: #f1f1f1;
+}
+
+.no-data {
+	margin-top: 20px;
+	color: #666;
+}
+</style>
+
+
+</head>
+<body>
+	<h2>Expense List</h2>
+
+	<div class="nav-links">
+		<a href="welcome">Go Back</a>
+	</div>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Expense Name</th>
+				<th>Amount</th>
+				<th>Description</th>
+				<th>Expense Added Date</th>
+				<th>Last Update on Date</th>
+				<th>Update</th>
+			</tr>
+		</thead>
+		<tbody>
+
+			<%
+			List<Expense> expenseList = (List<Expense>) request.getAttribute("expenses");
+
+			for (Expense expense : expenseList) {
+			%>
+
+			<tr>
+
+				<td><%=expense.getName()%></td>
+				<td><%=expense.getAmount()%></td>
+				<td><%=expense.getDescription()%></td>
+				<td><%=expense.getCreatedDate()%></td>
+				<td><%=expense.getUpdatedDate()%></td>
+				<td><a href="updateexpense" >Update</a></td>
+			</tr>
+
+			<%
+			}
+			%>
+
+		</tbody>
+	</table>
+</body>
 </html>

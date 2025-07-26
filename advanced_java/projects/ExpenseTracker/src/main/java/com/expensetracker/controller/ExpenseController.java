@@ -1,5 +1,7 @@
 package com.expensetracker.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,11 +9,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.expensetracker.entity.Expense;
 import com.expensetracker.entity.User;
 import com.expensetracker.service.ExpenseService;
 import com.expensetracker.service.UserService;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 @SessionAttributes("username")
@@ -28,10 +32,21 @@ public class ExpenseController {
 		return "login.jsp";
 	}
 
+	@GetMapping("/welcome")
+	public String welcomePage() {
+		return "welcome.jsp";
+	}
+
 	@GetMapping("/register")
 	public String registerPage(Model model) {
 		model.addAttribute("user", new User());
 		return "register.jsp";
+	}
+
+	@GetMapping("/addexpense")
+	public String addExpensePage(Model model) {
+		model.addAttribute("expense", new Expense());
+		return "addexpense.jsp";
 	}
 
 	@PostMapping("/register")
@@ -56,26 +71,59 @@ public class ExpenseController {
 
 		if (login) {
 			// create a session to maintain logged in user information
-			model.addAttribute("username",un);
+			HttpSession session = request.getSession(true); // will create an object if it is not
+			// present else it will create a new session object and return it
+
+			session.setAttribute("username", un);
 			return "welcome.jsp";
 		} else {
 			model.addAttribute("errmsg", "Invalid credentials!");
 			return "login.jsp";
 		}
 	}
-	
-	@GetMapping("/addexpense")
-	public String addExpense() {
-		return "addexpense.jsp";
+
+	@PostMapping("/addexpense")
+	public String saveExpense(Expense expense, Model model, HttpServletRequest request) {
+
+		HttpSession session = request.getSession(false);
+		String username = (String) session.getAttribute("username");
+
+		User user = userService.findByUsername(username);
+
+		expense.setUser(user);
+
+		Integer eid = expenseService.saveExpense(expense);
+
+		model.addAttribute("msg", "Expense added succesfully with id : " + eid);
+
+		return "welcome.jsp";
 	}
-	
+
 	@GetMapping("/updateexpense")
-	public String updateExpense() {
+	public String updateExpense(Model model) {
+		model.addAttribute("expense", new Expense());
 		return "updateexpense.jsp";
 	}
-	
+
 	@GetMapping("/expenselist")
-	public String listExpense() {
+	public String listExpense(Model model, HttpServletRequest request) {
+
+		HttpSession session = request.getSession(false);
+		String username = (String) session.getAttribute("username");
+
+		User user = userService.findByUsername(username);
+
+		List<Expense> expenses = user.getExpenses();
+
+		model.addAttribute("expenses", expenses);
+
 		return "expenselist.jsp";
+	}
+
+	@GetMapping("/logout")
+	public String logout(HttpServletRequest request) {
+		HttpSession session = request.getSession(false);
+		session.invalidate(); // destroys the session
+		return "login.jsp";
 	}
 }

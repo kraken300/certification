@@ -49,7 +49,6 @@
 
     <div class="nav-links">
       <a href="addexpense">Add Expense</a>
-      <a href="updateexpense">Update Expense</a>
       <a href="expenselist">Expense List</a>
       <a href="logout" style="background: red">Logout</a>
     </div>

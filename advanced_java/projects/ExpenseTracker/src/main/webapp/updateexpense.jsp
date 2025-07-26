@@ -76,20 +76,19 @@
   <body>
     <div class="expense-form-container">
       <h2>Update Expense</h2>
-      <form >
+      <form action="updateexpense" method="post">
+      
+       <label for="eid">Expense Id:</label>
+        <input type="text" id="eid" name="eid" readonly="readonly" value="${expense.eid}" required />
+      
         <label for="expenseName">Expense Name:</label>
-        <input type="text" id="expenseName" name="expenseName" required />
+        <input type="text" id="expenseName" name="name" value="${expense.name}" required />
 
         <label for="amount">Amount:</label>
-        <input type="number" id="amount" name="amount" step="0.01" required />
+        <input type="number" id="amount" name="amount" value="${expense.amount}" step="0.01" required />
 
         <label for="description">Description:</label>
-        <textarea
-          id="description"
-          name="description"
-          rows="4"
-          required
-        ></textarea>
+        <input type="text" id="description" name="description" value="${expense.description}" required />
 
         <input type="submit" value="Update Expense" />
       </form>

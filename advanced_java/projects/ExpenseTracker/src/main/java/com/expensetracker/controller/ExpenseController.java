@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.expensetracker.entity.Expense;
@@ -47,6 +48,13 @@ public class ExpenseController {
 	public String addExpensePage(Model model) {
 		model.addAttribute("expense", new Expense());
 		return "addexpense.jsp";
+	}
+
+	@GetMapping("/updateexpense")
+	public String updateExpense(@RequestParam Integer eid, Model model) {
+		Expense expense = expenseService.findById(eid);
+		model.addAttribute("expense", expense);
+		return "updateexpense.jsp";
 	}
 
 	@PostMapping("/register")
@@ -99,12 +107,6 @@ public class ExpenseController {
 		return "welcome.jsp";
 	}
 
-	@GetMapping("/updateexpense")
-	public String updateExpense(Model model) {
-		model.addAttribute("expense", new Expense());
-		return "updateexpense.jsp";
-	}
-
 	@GetMapping("/expenselist")
 	public String listExpense(Model model, HttpServletRequest request) {
 
@@ -125,5 +127,20 @@ public class ExpenseController {
 		HttpSession session = request.getSession(false);
 		session.invalidate(); // destroys the session
 		return "login.jsp";
+	}
+
+	@PostMapping("/updateexpense")
+	public String updateExpense(Expense expense, Model model) {
+		String message = expenseService.updateExpense(expense);
+		model.addAttribute("msg", message);
+		return "welcome.jsp";
+	}
+	
+
+	@GetMapping("/deleteexpense")
+	public String deleteExpense(@RequestParam Integer eid, Model model) {
+		String message = expenseService.deleteExpense(eid);
+		model.addAttribute("msg", message);
+		return "welcome.jsp";
 	}
 }

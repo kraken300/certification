@@ -79,10 +79,6 @@ tr:hover {
 <body>
 	<h2>Expense List</h2>
 
-	<div class="nav-links">
-		<a href="welcome">Go Back</a>
-	</div>
-
 	<table>
 		<thead>
 			<tr>
@@ -92,6 +88,7 @@ tr:hover {
 				<th>Expense Added Date</th>
 				<th>Last Update on Date</th>
 				<th>Update</th>
+				<th>Delete</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -109,7 +106,8 @@ tr:hover {
 				<td><%=expense.getDescription()%></td>
 				<td><%=expense.getCreatedDate()%></td>
 				<td><%=expense.getUpdatedDate()%></td>
-				<td><a href="updateexpense" >Update</a></td>
+				<td><a href="updateexpense?eid=<%=expense.getEid()%>">Update</a></td>
+				<td><a href="deleteexpense?eid=<%=expense.getEid()%>">Delete</a></td>
 			</tr>
 
 			<%
@@ -118,5 +116,11 @@ tr:hover {
 
 		</tbody>
 	</table>
+
+	<br>
+
+	<div class="nav-links">
+		<a href="welcome">Go Back</a>
+	</div>
 </body>
 </html>

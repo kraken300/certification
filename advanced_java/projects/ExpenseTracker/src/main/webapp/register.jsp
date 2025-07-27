@@ -37,7 +37,7 @@
         input[type="text"],
         input[type="email"],
         input[type="password"] {
-            width: 100%;
+            width: 93%;
             padding: 10px;
             border-radius: 5px;
             border: 1px solid #ccc;
@@ -86,7 +86,7 @@
         <input type="submit" value="Register">
     </form>
     <br>
-    <a href="/">already have an account ? Login Here</a>
+    <a href="/">Already have an account ? Login Here</a>
 
     <div class="message" id="message"></div>
 </div>

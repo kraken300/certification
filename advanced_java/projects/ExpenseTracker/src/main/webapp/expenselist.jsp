@@ -96,13 +96,15 @@ tr:hover {
 			<%
 			List<Expense> expenseList = (List<Expense>) request.getAttribute("expenses");
 
+			Double sum = 0.0;
 			for (Expense expense : expenseList) {
+				sum = sum + expense.getAmount();
 			%>
 
 			<tr>
 
 				<td><%=expense.getName()%></td>
-				<td><%=expense.getAmount()%></td>
+				<td>₹ <%=expense.getAmount()%></td>
 				<td><%=expense.getDescription()%></td>
 				<td><%=expense.getCreatedDate()%></td>
 				<td><%=expense.getUpdatedDate()%></td>
@@ -113,9 +115,10 @@ tr:hover {
 			<%
 			}
 			%>
-
 		</tbody>
 	</table>
+
+	<h4 style="color: blue; font-size: 26px">Total : ₹ <%=sum%></h4>
 
 	<br>
 

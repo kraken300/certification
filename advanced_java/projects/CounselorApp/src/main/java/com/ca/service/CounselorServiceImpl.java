@@ -108,8 +108,10 @@ public class CounselorServiceImpl implements CounselorService {
 
 	@Override
 	public ResponseEntity<ResponseStructure<CounselorResponseDTO>> getCounselorById(Integer cid) {
+		System.out.println(cid);
 		Counselor counselor = counselorDAO.findById(cid)
 				.orElseThrow(() -> new CounselorNotFound("Counselor not found!"));
+		
 
 		CounselorResponseDTO counselorResponseDTO = new CounselorResponseDTO();
 

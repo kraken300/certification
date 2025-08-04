@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ca.dto.CounselorDTO;
@@ -53,8 +52,8 @@ public class CounselorController {
 		return counselorService.getEnquiries(cid);
 	}
 
-	@GetMapping
-	public ResponseEntity<ResponseStructure<CounselorResponseDTO>> getCounselorById(@RequestParam Integer cid) {
+	@GetMapping("/get/{cid}")
+	public ResponseEntity<ResponseStructure<CounselorResponseDTO>> getCounselorById(@PathVariable Integer cid) {
 		return counselorService.getCounselorById(cid);
 	}
 }

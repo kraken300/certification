@@ -54,11 +54,11 @@ const Todos = () => {
     return (
         <>
 
-            <div className="container mx-aut dark:bg-gray-300 max-w-full min-h-screen">
+            <div className="container mx-auto dark:bg-gray-300 max-w-full min-h-screen">
 
                 <h1 className="text-4xl text-orange-400 text-center py-4">Todos</h1>
 
-                <form className='border-2 p-4 text-center w-4/5 mx-auto rounded flex flex-col md:w-1/2'>
+                <form className='border-2 p-4 text-center w-4/5 mx-auto rounded flex flex-col gap-2 md:w-1/2'>
                     <input type="text" name="title" id="title" placeholder='Enter title' value={input.title} onChange={handleChange} className='border rounded w-full p-1' required /> <br />
 
                     <input type="text" name="content" id="content" placeholder='Enter content' value={input.content} onChange={handleChange} className='border rounded w-full p-1' required /> <br />
